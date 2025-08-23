@@ -2,9 +2,11 @@
 
 Welcome to the **Assortment of Mini ML Projects** repository—a curated collection of hands-on, small-scale machine learning experiments. Each project explores fundamental techniques in regression using diverse real-world datasets.
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1hb5CcUgi0QXym9RUFIm1-3BWEvNqPp26?usp=sharing)
+
 ---
 
-## ​ Project Overview
+## 🗂 Project Overview
 
 This repository includes the following mini-projects:
 
@@ -25,7 +27,15 @@ This repository includes the following mini-projects:
 
 ---
 
-##  Getting Started
+## 🚀 Try It Out on Google Colab
+
+You can experiment with the code directly in your browser without setup:  
+
+👉 [**Open the Colab Notebook**](https://colab.research.google.com/drive/1hb5CcUgi0QXym9RUFIm1-3BWEvNqPp26?usp=sharing)
+
+---
+
+## ⚙️ Getting Started
 
 ### Prerequisites
 Ensure you have the following installed:
