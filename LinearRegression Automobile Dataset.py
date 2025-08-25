@@ -30,3 +30,11 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 
 print("R^2 Score:", r2_score(y_test, y_pred))
+
+plt.plot(X_test, y_test, 'o', label="Actual")
+plt.plot(X_test, y_pred, 'r-', label="Predicted")
+plt.xlabel("Horsepower")
+plt.ylabel("Price")
+plt.title("Actual vs Predicted Prices")
+plt.legend()
+plt.show()
