@@ -25,6 +25,16 @@ This repository includes the following mini-projects:
 - Dataset: `heart_disease_dataset.csv`  
 - **Goal**: Model heart disease likelihood using patient health metrics—age, cholesterol, blood pressure, etc.
 
+### 4. Automobile Price Prediction (Polynomial Regression)
+- File: `PolynomialRegression Automobile Dataset.py`
+- Dataset: `Automobile_data.csv`
+- Goal: Predict automobile prices using polynomial features of engine size, horsepower, curb weight, fuel efficiency, etc.
+
+### 5. Bengaluru Housing Price Estimation (Polynomial Regression)
+- File: `PolynomialRegression Bengaluru Housing Data.py`
+- Dataset: `bengaluru_house_prices.csv`
+- Goal: Estimate housing prices in Bengaluru using polynomial features of location, size, and amenity-based features.
+
 ---
 
 ## 🚀 Try It Out on Google Colab
