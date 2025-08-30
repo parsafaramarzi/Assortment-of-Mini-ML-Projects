@@ -39,7 +39,7 @@ This repository includes the following mini-projects:
 
 ## 🚀 Try It Out on Google Colab
 
-You can experiment with the code directly in your browser without setup:  
+You can experiment with the code directly in your browser without any setup:  
 
 👉 [**Open the Colab Notebook**](https://colab.research.google.com/drive/1hb5CcUgi0QXym9RUFIm1-3BWEvNqPp26?usp=sharing)
 
