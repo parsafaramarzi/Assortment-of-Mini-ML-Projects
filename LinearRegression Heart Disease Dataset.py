@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 
-data = pd.read_csv("heart_disease_dataset.csv")
+data = pd.read_csv("Datasets/heart_disease_dataset.csv")
 
 plt.scatter(data['bmi'], data['chol'])
 plt.xlabel('BMI')

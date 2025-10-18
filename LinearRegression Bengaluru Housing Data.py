@@ -15,7 +15,7 @@ def convert_sqft_to_num(x):
     except:
         return np.nan
 
-data = pd.read_csv("bengaluru_house_prices.csv")
+data = pd.read_csv("Datasets/bengaluru_house_prices.csv")
 data['total_sqft'] = data['total_sqft'].apply(convert_sqft_to_num)
 data = data.dropna(subset=['total_sqft', 'price'])
 

@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 
     
-data = pd.read_csv("Automobile_data.csv")
+data = pd.read_csv("Datasets/Automobile_data.csv")
 
 # Replace '?' with NaN and convert columns to numeric
 data['horsepower'] = pd.to_numeric(data['horsepower'].replace('?', pd.NA))
