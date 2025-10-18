@@ -3,9 +3,8 @@
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-A growing collection of **mini machine learning projects**, each focused on a key ML algorithm or concept — regression, classification, clustering, dimensionality reduction, and ensemble methods — using real-world datasets.  
-
-Each project is self-contained, beginner-friendly, and ideal for learning or portfolio showcasing.
+A growing collection of **mini machine learning projects**, each focused on a core ML algorithm or concept — regression, classification, clustering, dimensionality reduction, and ensemble methods — using real datasets.  
+Each project is self-contained and written to be easy to run and learn from.
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1hb5CcUgi0QXym9RUFIm1-3BWEvNqPp26?usp=sharing)
 
@@ -14,7 +13,7 @@ Each project is self-contained, beginner-friendly, and ideal for learning or por
 ## 🗂 Repository Overview
 
 ### 📁 Folder
-- **Datasets/** – Contains all datasets used by the projects.
+- **Datasets/** – contains the CSV files used by the projects.
 
 ---
 
@@ -22,17 +21,35 @@ Each project is self-contained, beginner-friendly, and ideal for learning or por
 
 ### 1. Linear Regression
 - **`LinearRegression Automobile Dataset.py`**  
-  Predict automobile prices from features like horsepower, weight, and engine size.  
+  - **Features:** `horsepower`  
+  - **Target:** `price`  
+  - **Goal:** Predict automobile price from horsepower using linear regression.
+
 - **`LinearRegression Bengaluru Housing Data.py`**  
-  Estimate Bengaluru housing prices using location, area, and number of rooms.  
+  - **Features:** `total_sqft` (total square feet)  
+  - **Target:** `price`  
+  - **Goal:** Predict Bengaluru house prices from total square feet using linear regression.
+
 - **`LinearRegression Heart Disease Dataset.py`**  
-  Predict cholesterol levels (`chol`) based on BMI and other health metrics.
+  - **Features:** `bmi`  
+  - **Target:** `chol` (cholesterol)  
+  - **Goal:** Predict cholesterol level from BMI using linear regression.
 
 ### 2. Polynomial Regression
 - **`Polynomial Regression Automobile Dataset.py`**  
-  Extend the automobile dataset with polynomial features to capture non-linear trends.  
+  - **Features:** `horsepower`  
+  - **Target:** `price`  
+  - **Goal:** Capture non-linear relationship between horsepower and price using polynomial regression.
+
 - **`Polynomial Regression Bengaluru Housing Data.py`**  
-  Explore polynomial fits for complex housing price relationships.
+  - **Features:** `total_sqft`  
+  - **Target:** `price`  
+  - **Goal:** Model non-linear house-price relationships with polynomial features.
+
+- **`Polynomial Regression Heart Disease Dataset.py`** *(if present)*  
+  - **Features:** `bmi`  
+  - **Target:** `chol`  
+  - **Goal:** Fit non-linear trends between BMI and cholesterol using polynomial regression.
 
 ---
 
@@ -40,25 +57,30 @@ Each project is self-contained, beginner-friendly, and ideal for learning or por
 
 ### 3. Decision Trees (DT)
 - **`DT Drug200.py`**  
-  Classify drug prescriptions based on patient features (age, sex, BP, cholesterol).  
+  - Classification of drug type from patient features.
+
 - **`DT diabetes.py`**  
-  Predict diabetes presence from patient medical data.
+  - Predict diabetes presence from medical features.
 
 ### 4. Random Forest (RF)
 - **`RF Drug200.py`**  
-  Ensemble classifier improving accuracy over single decision trees on Drug200.  
+  - Ensemble version of Drug200 classification.
+
 - **`RF diabetes.py`**  
-  Random Forest applied to diabetes prediction for better generalization.
+  - Random Forest for diabetes prediction.
 
 ### 5. Support Vector Machine (SVM)
 - **`SVM BreastCancer.py`**  
-  Classify breast cancer cases using linear and RBF kernels.
+  - **Kernels used:** `linear`, `poly`, `rbf`  
+  - Classify breast cancer cases and compare kernels.
 
 ### 6. K-Nearest Neighbors (KNN)
 - **`KNN Iris&Customer.py`**  
-  Apply KNN for:
-  - Iris dataset species classification  
-  - Customer segmentation based on spending and income data.
+  - **Iris:** standard species classification.  
+  - **Customer subtask:**  
+    - **Features:** `Age`, `Annual Income (k$)`, `Spending Score (1-100)`  
+    - **Target:** `Gender`  
+    - **Goal:** Predict customer gender using KNN on the three features.
 
 ---
 
@@ -66,15 +88,9 @@ Each project is self-contained, beginner-friendly, and ideal for learning or por
 
 ### 7. K-Means Mall Customers
 - **`Kmeans Mall Customers.py`**  
-  Perform unsupervised **customer segmentation** using K-Means clustering.  
-  Groups mall customers into clusters based on:
-  - Annual income  
-  - Spending score  
-  - Purchasing behavior  
-
-  Includes:
-  - Elbow method to find the optimal number of clusters  
-  - Cluster visualization in 2D space  
+  - **Features:** `Age`, `Annual Income (k$)`, `Spending Score (1-100)`  
+  - **Goal:** Unsupervised customer segmentation using K-Means.  
+  - **Includes:** elbow method for k selection and 2D/3D cluster visualizations.
 
 ---
 
@@ -82,8 +98,7 @@ Each project is self-contained, beginner-friendly, and ideal for learning or por
 
 ### 8. Principal Component Analysis (PCA)
 - **`PCA Wine.py`**  
-  Apply PCA to the **Wine dataset** to visualize class separation in lower dimensions.  
-  Shows explained variance and feature compression for interpretability.
+  - Apply PCA to the Wine dataset to visualize separation and explained variance.
 
 ---
 
