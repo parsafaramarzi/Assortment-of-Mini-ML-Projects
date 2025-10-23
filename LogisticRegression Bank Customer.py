@@ -55,6 +55,7 @@ plt.legend(loc="lower right")
 plt.grid(True)
 plt.show()
 
+#Feature Coefficients
 coefficients = model.coef_[0]
 feature_importance = pd.Series(coefficients, index=feature_names).sort_values(ascending=False)
 
