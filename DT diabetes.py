@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn import tree
@@ -5,28 +6,44 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
 
-# Load the dataset
+OUTPUT_DIR = "output"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
 data = pd.read_csv("Datasets/diabetes.csv")
 
-# Define features and target variable
 x = data[["Pregnancies", "Glucose", "BloodPressure", "SkinThickness", "Insulin", "BMI", "DiabetesPedigreeFunction", "Age"]]
 y = data["Outcome"]
 
-# Split the data into training and testing sets
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
-# Initialize and train the Decision Tree Classifier
 DT = DecisionTreeClassifier()
 model = DT.fit(x_train, y_train)
 
-# Predict on the test set
+importances = model.feature_importances_
+feature_names = x.columns
+importance_df = pd.DataFrame({'Feature': feature_names, 'Importance': importances})
+importance_df = importance_df.sort_values(by='Importance', ascending=False)
+
 y_pred = model.predict(x_test)
 
-# Calculate and print the accuracy
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Accuracy: {accuracy*100:.2f}%")
 
-# Visualize the decision tree
 fig = plt.figure(figsize=(30, 20))
 tree.plot_tree(model, filled=True, feature_names=x.columns, class_names=["No Diabetes", "Diabetes"], fontsize=3)
+tree_path = os.path.join(OUTPUT_DIR, "dt_diabetes_tree.png")
+fig.savefig(tree_path, dpi=300, bbox_inches='tight')
+print(f"Tree saved -> {tree_path}")
+plt.show()
+
+plt.figure(figsize=(10, 6))
+plt.barh(importance_df['Feature'], importance_df['Importance'], color='skyblue', edgecolor='black')
+plt.xlabel('Importance')
+plt.title('Decision Tree - Feature Importance Ranking')
+plt.gca().invert_yaxis()
+plt.tight_layout()
+
+imp_path = os.path.join(OUTPUT_DIR, "dt_diabetes_importance.png")
+plt.savefig(imp_path, dpi=300, bbox_inches='tight')
+print(f"Importance plot saved -> {imp_path}")
 plt.show()
