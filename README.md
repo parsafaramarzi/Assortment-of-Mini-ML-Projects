@@ -107,8 +107,17 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ### 7. K-Nearest Neighbors (KNN)
 - **`KNN Iris&Customer.py`**
 
-![KNN – Iris Decision Regions](output/knn_iris_regions.png)  
-*Decision regions for the Iris dataset (k=5)*
+**Kernel Comparison**  
+<img src="output/svm_breastcancer_kernels.png" width="600"/>
+
+**2D PCA (Best Model)**  
+<img src="output/svm_breastcancer_2d.png" width="600"/>
+
+**3D PCA View**  
+<img src="output/svm_breastcancer_3d.png" width="600"/>
+
+> **Legend:** Blue = Benign | Red = Malignant  
+> **Best:** `SVM RBF` → ~95% accuracy
 
 ---
 
