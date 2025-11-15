@@ -41,7 +41,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 | `Polynomial Regression Heart Disease Dataset.py` | `bmi` | `chol` | Fit non-linear BMI-cholesterol |
 
 <img src="output/poly_reg_automobile.png" width="600"/>
-*Degree-3 polynomial curve on horsepower vs price*
+*Degree-14 polynomial curve on horsepower vs price*
 
 ---
 
