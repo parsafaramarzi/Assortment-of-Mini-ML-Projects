@@ -93,10 +93,11 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ### 6. Support Vector Machine (SVM)
 - **`SVM BreastCancer.py`** – kernels `linear`, `poly`, `rbf`
 
-**Best Model Decision Regions (2D PCA)**  
+**Kernel Comparison**
+<img src="output/svm_breastcancer_kernels.png" width="600"/>
+**2D PCA (Best Model)**
 <img src="output/svm_breastcancer_2d.png" width="600"/>
-
-**3D PCA View**  
+**3D PCA View**
 <img src="output/svm_breastcancer_3d.png" width="600"/>
 
 > **Legend:** Blue = Benign | Orange = Malignant  
@@ -107,17 +108,12 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ### 7. K-Nearest Neighbors (KNN)
 - **`KNN Iris&Customer.py`**
 
-**Kernel Comparison**  
-<img src="output/svm_breastcancer_kernels.png" width="600"/>
-
-**2D PCA (Best Model)**  
-<img src="output/svm_breastcancer_2d.png" width="600"/>
-
-**3D PCA View**  
-<img src="output/svm_breastcancer_3d.png" width="600"/>
-
-> **Legend:** Blue = Benign | Red = Malignant  
-> **Best:** `SVM RBF` → ~95% accuracy
+**Iris Classification**
+<img src="output/knn_iris.png" width="500"/>
+**Customer Gender Prediction**
+<img src="output/knn_customer.png" width="500"/>
+> **Legend:** Blue = Setosa/Male | Orange = Versicolor/Female | Green = Virginica  
+> **Iris:** ~100% | **Gender:** ~60% (challenging overlap)
 
 ---
 
