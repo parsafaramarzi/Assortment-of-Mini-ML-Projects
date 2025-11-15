@@ -201,4 +201,4 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ### Requirements
 ```bash
-pip install pandas numpy scikit-learn matplotlib seaborn opencv-python ultralytics
+pip install pandas numpy scikit-learn matplotlib seaborn opencv-python ultralytics imageio imageio-ffmpeg
