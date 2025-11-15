@@ -180,8 +180,12 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
   - **Model:** `yolov8n.pt`
   - **Input:** `Datasets/cartraffic03.mp4`
 
-![YOLOv8 Traffic Demo](output/yolov8_traffic_frame.jpg)  
-*Sample frame with custom coloured bounding boxes (person=red, car=blue, bus=cyan, etc.)*
+<video src="output/yolo_detected.mp4" width="100%" controls></video>
+
+> - 80+ classes detected with **custom BGR colors**  
+> - **No distortion** — aspect ratio preserved  
+> - Saved using `imageio` + `libx264` (plays everywhere)  
+> - Press **Enter** to stop
 
 ---
 
