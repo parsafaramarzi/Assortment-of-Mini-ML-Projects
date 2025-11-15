@@ -50,11 +50,12 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
   - **Dataset:** `concrete_data.csv`
   - **Goal:** Predict **concrete compressive strength** from 8 material components.
 
-![Correlation Heatmap – Concrete](output/concrete_corr_heatmap.png)  
-*Feature correlation matrix*
+<img src="output/concrete_corr_heatmap.png" width="600"/>
+<img src="output/concrete_feature_scatter.png" width="600"/>
+<img src="output/concrete_residuals_before.png" width="600"/>
+<img src="output/concrete_residuals.png" width="600"/>
 
-![Residuals before/after polynomial features](output/concrete_residuals.png)  
-*Residual analysis (left: linear, right: polynomial)*
+> **Before vs After:** Polynomial features + removing weak predictors (`slag`, `fly_ash`) improved R² from ~60% → **~80%+** and fixed residual patterns.
 
 ---
 
