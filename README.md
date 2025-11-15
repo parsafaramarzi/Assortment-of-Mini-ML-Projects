@@ -94,12 +94,15 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 - **`SVM BreastCancer.py`** – kernels `linear`, `poly`, `rbf`
 
 **Kernel Comparison**
+
 <img src="output/svm_breastcancer_kernels.png" width="600"/>
 
 **2D PCA (Best Model)**
+
 <img src="output/svm_breastcancer_2d.png" width="600"/>
 
 **3D PCA View**
+
 <img src="output/svm_breastcancer_3d.png" width="600"/>
 
 > **Legend:** Blue = Benign | Orange = Malignant  
@@ -111,9 +114,11 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 - **`KNN Iris&Customer.py`**
 
 **Iris Classification**
+
 <img src="output/knn_iris.png" width="500"/>
 
 **Customer Gender Prediction**
+
 <img src="output/knn_customer.png" width="500"/>
 
 > **Legend:** Blue = Setosa/Male | Orange = Versicolor/Female | Green = Virginica  
