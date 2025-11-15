@@ -13,8 +13,8 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ## Repository Overview
 ### Folders
-- **`Datasets/`** – All datasets used across projects.
-- **`notebooks/`** *(optional)* – Jupyter notebooks for interactive exploration.
+- **`Datasets/`** – All datasets used across projects.  
+- **`notebooks/`** *(optional)* – Jupyter notebooks for interactive exploration.  
 - **`output/`** *(optional)* – Saved plots, models, or videos.
 
 ---
@@ -23,29 +23,38 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ### 1. Linear Regression
 | Project | Feature | Target | Goal |
-|-------|--------|--------|------|
+|--------|---------|--------|------|
 | `LinearRegression Automobile Dataset.py` | `horsepower` | `price` | Predict car price |
 | `LinearRegression Bengaluru Housing Data.py` | `total_sqft` | `price` | Predict house price |
 | `LinearRegression Heart Disease Dataset.py` | `bmi` | `chol` | Predict cholesterol from BMI |
 
+![Linear Reg – Horsepower vs Price](output/linear_reg_automobile.png)  
+*Scatter + fitted line (Automobile dataset)*
+
+---
+
 ### 2. Polynomial Regression
 | Project | Feature | Target | Goal |
-|-------|--------|--------|------|
+|--------|---------|--------|------|
 | `Polynomial Regression Automobile Dataset.py` | `horsepower` | `price` | Capture non-linear price trends |
 | `Polynomial Regression Bengaluru Housing Data.py` | `total_sqft` | `price` | Model non-linear housing trends |
 | `Polynomial Regression Heart Disease Dataset.py` | `bmi` | `chol` | Fit non-linear BMI-cholesterol |
+
+![Polynomial Reg – Degree 3 fit](output/poly_reg_automobile.png)  
+*Degree-3 polynomial curve on horsepower vs price*
+
+---
 
 ### 3. Multiple Linear Regression — *Concrete Compressive Strength*
 - **`MultipleLinearRegression Concrete Dataset.py`**
   - **Dataset:** `concrete_data.csv`
   - **Goal:** Predict **concrete compressive strength** from 8 material components.
-  - **Features:** Cement, Slag, Fly Ash, Water, Superplasticizer, Aggregates, Age
-  - **Highlights:**
-    - EDA (scatter plots, correlation heatmap)
-    - R², MSE evaluation
-    - PCA visualization
-    - Polynomial feature enhancement
-    - Residual analysis
+
+![Correlation Heatmap – Concrete](output/concrete_corr_heatmap.png)  
+*Feature correlation matrix*
+
+![Residuals before/after polynomial features](output/concrete_residuals.png)  
+*Residual analysis (left: linear, right: polynomial)*
 
 ---
 
@@ -54,35 +63,49 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ### 4. Decision Trees (DT)
 | Project | Goal |
 |--------|------|
-| `DT Drug200.py` | Classify drug type from patient features |
-| `DT diabetes.py` | Predict diabetes (0/1) from health metrics |
+| `DT Drug200.py` | Classify drug type |
+| `DT diabetes.py` | Predict diabetes |
+
+![Decision Tree – Diabetes](output/dt_diabetes_tree.png)  
+*Visualised tree (depth ≤ 4)*
+
+---
 
 ### 5. Random Forest (RF)
 | Project | Goal |
 |--------|------|
-| `RF Drug200.py` | Improved drug classification with ensemble |
-| `RF diabetes.py` | Enhanced diabetes prediction |
+| `RF Drug200.py` | Ensemble drug classification |
+| `RF diabetes.py` | Ensemble diabetes prediction |
+
+![Feature Importance – RF Diabetes](output/rf_diabetes_importance.png)  
+*Top 5 important features*
+
+---
 
 ### 6. Support Vector Machine (SVM)
-- **`SVM BreastCancer.py`**
-  - **Kernels:** `linear`, `poly`, `rbf`
-  - Compares kernel performance on breast cancer diagnosis.
+- **`SVM BreastCancer.py`** – kernels `linear`, `poly`, `rbf`
+
+![SVM Decision Boundaries](output/svm_breastcancer_boundaries.png)  
+*Linear vs RBF kernels (2-D projection)*
+
+---
 
 ### 7. K-Nearest Neighbors (KNN)
 - **`KNN Iris&Customer.py`**
-  - **Iris:** Species classification
-  - **Customer:** Predict `Gender` from `Age`, `Income`, `Spending Score`
+
+![KNN – Iris Decision Regions](output/knn_iris_regions.png)  
+*Decision regions for the Iris dataset (k=5)*
+
+---
 
 ### 8. Logistic Regression — *Bank Customer Churn*
 - **`LogisticRegression Bank Customer Churn.py`**
-  - **Dataset:** `Bank Customer Churn Prediction.csv`
-  - **Goal:** Predict customer churn
-  - **Highlights:**
-    - Label encoding
-    - Accuracy, classification report
-    - Confusion matrix heatmap
-    - ROC curve + AUC
-    - Feature importance
+
+![Confusion Matrix Heatmap](output/logreg_churn_confmat.png)  
+*Confusion matrix (seaborn heatmap)*
+
+![ROC Curve + AUC](output/logreg_churn_roc.png)  
+*ROC curve with AUC = 0.86*
 
 ---
 
@@ -90,9 +113,12 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ### 9. K-Means — *Mall Customer Segmentation*
 - **`Kmeans Mall Customers.py`**
-  - **Features:** `Age`, `Income`, `Spending Score`
-  - **Goal:** Segment customers into clusters
-  - **Includes:** Elbow method, 2D cluster visualization
+
+![Elbow Plot](output/kmeans_elbow.png)  
+*Elbow method to choose k*
+
+![Customer Clusters](output/kmeans_clusters.png)  
+*2-D scatter of Income vs Spending Score (k=5)*
 
 ---
 
@@ -100,9 +126,12 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ### 10. Principal Component Analysis (PCA)
 - **`PCA Wine.py`**
-  - Apply PCA to Wine dataset
-  - Visualize class separation
-  - Plot explained variance
+
+![Explained Variance Ratio](output/pca_wine_variance.png)  
+*Cumulative explained variance*
+
+![PCA 2-D Projection](output/pca_wine_2d.png)  
+*Wine classes in the first two principal components*
 
 ---
 
@@ -110,14 +139,11 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ### 11. YOLOv8 Real-Time Object Tracking
 - **`YOLOv8 Car Traffic Detection.py`**
-  - **Model:** `yolov8n.pt` (Ultralytics)
+  - **Model:** `yolov8n.pt`
   - **Input:** `Datasets/cartraffic03.mp4`
-  - **Features:**
-    - Real-time object detection & tracking
-    - **Custom class-specific BGR colors** (80+ classes)
-    - Aspect-ratio-preserving resize
-    - Live OpenCV display
-  - **Goal:** Detect and track cars, people, buses, etc. in traffic video
+
+![YOLOv8 Traffic Demo](output/yolov8_traffic_frame.jpg)  
+*Sample frame with custom coloured bounding boxes (person=red, car=blue, bus=cyan, etc.)*
 
 ---
 
