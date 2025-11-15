@@ -40,7 +40,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 | `Polynomial Regression Bengaluru Housing Data.py` | `total_sqft` | `price` | Model non-linear housing trends |
 | `Polynomial Regression Heart Disease Dataset.py` | `bmi` | `chol` | Fit non-linear BMI-cholesterol |
 
-![Polynomial Reg – Degree 3 fit](output/poly_reg_automobile.png)  
+<img src="output/poly_reg_automobile.png" width="600"/>
 *Degree-3 polynomial curve on horsepower vs price*
 
 ---
