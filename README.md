@@ -134,8 +134,8 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 <img src="output/logreg_churn_importance.png" width="600"/>
 
 > **Accuracy:** `81.60%` | **AUC:** `0.744`  
-> **Top drivers of churn:** `age`, `balance`, `products_number` (positive coefficients → higher risk)  
-> **Protective factors:** `credit_card`, `active_member` (negative coefficients → lower risk)
+> **Top drivers:** `country`, `age`, `products_number`  
+> **Protective:** `active_member` (strongest)
 
 ---
 
