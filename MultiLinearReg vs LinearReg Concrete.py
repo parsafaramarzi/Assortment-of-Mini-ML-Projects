@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -7,6 +8,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 from sklearn.metrics import mean_squared_error
 from sklearn import decomposition
+
+OUTPUT_DIR = "output"
+os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 data = pd.read_csv("Datasets/concrete_data.csv")
 x = data.drop(columns=["concrete_compressive_strength"])
@@ -22,6 +26,7 @@ for i in range(x_train.shape[1]):
     ax1.scatter(data[feature_name], data[target_name])
     ax1.set_title(f"{feature_name} vs {target_name}")
 fig.tight_layout(pad=3.0)
+plt.savefig(os.path.join(OUTPUT_DIR, "concrete_feature_scatter.png"), dpi=200, bbox_inches='tight')
 plt.show()
 
 fig = plt.figure(figsize=(12, 12))
@@ -31,10 +36,12 @@ for i in range(x_train.shape[1]):
     ax1.hist(data[feature_name], bins=20, color='skyblue', edgecolor='black')
     ax1.set_title(f"{feature_name} Distribution")
 fig.tight_layout(pad=3.0)
+plt.savefig(os.path.join(OUTPUT_DIR, "concrete_histograms.png"), dpi=200, bbox_inches='tight')
 plt.show()
 
 cor_matrix = data.corr()
 sns.heatmap(cor_matrix,annot=True,cmap="coolwarm")
+plt.savefig(os.path.join(OUTPUT_DIR, "concrete_corr_heatmap.png"), dpi=200, bbox_inches='tight')
 plt.show()
 
 LR_Model = LinearRegression()
@@ -62,6 +69,7 @@ plt.title("Multilinear All features vs Strength")
 plt.xlabel("Features")
 plt.ylabel("Strength")
 plt.legend(["Actual", "Predicted"])
+plt.savefig(os.path.join(OUTPUT_DIR, "concrete_pca_1d.png"), dpi=200, bbox_inches='tight')
 plt.show()
 
 fig = plt.figure(figsize=(12, 12))
@@ -85,6 +93,7 @@ for i in range(x_train.shape[1]):
     ax1.scatter(x_test[feature_name], y_pred,c='red')
     ax1.set_title(f"{feature_name} vs Strength")
 fig.tight_layout(pad=3.0)
+plt.savefig(os.path.join(OUTPUT_DIR, "concrete_single_feature_fits.png"), dpi=200, bbox_inches='tight')
 plt.show()    
 print(f"\nOverall Best Model: {Bestmodel} with R² = {BestAcc*100:.2f}% and MSE = {BestMSE:.2f}")
 
@@ -121,6 +130,7 @@ ax3.set_title('Distribution of Residuals (Before Improvements)')
 ax3.set_xlabel('Residuals')
 ax3.set_ylabel('Frequency')
 fig.tight_layout(pad=3.0)
+plt.savefig(os.path.join(OUTPUT_DIR, "concrete_residuals_before.png"), dpi=200, bbox_inches='tight')
 plt.show()
 
 x_train_fs = x_train.drop(columns=["blast_furnace_slag","fly_ash"])
@@ -194,4 +204,5 @@ ax3.set_title('Distribution of Residuals (Before Improvements)')
 ax3.set_xlabel('Residuals')
 ax3.set_ylabel('Frequency')
 fig.tight_layout(pad=3.0)
+plt.savefig(os.path.join(OUTPUT_DIR, "concrete_residuals.png"), dpi=200, bbox_inches='tight')
 plt.show()
