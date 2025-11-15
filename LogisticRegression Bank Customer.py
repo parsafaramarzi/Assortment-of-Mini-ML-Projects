@@ -37,6 +37,7 @@ sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', cbar=False,
 plt.title('Confusion Matrix')
 plt.xlabel('Predicted Label')
 plt.ylabel('True Label')
+plt.savefig("output/logreg_churn_confmat.png", dpi=300, bbox_inches='tight')
 plt.show()
 
 #ROC Curve
@@ -53,6 +54,7 @@ plt.ylabel('True Positive Rate (Sensitivity)')
 plt.title('Receiver Operating Characteristic (ROC) Curve')
 plt.legend(loc="lower right")
 plt.grid(True)
+plt.savefig("output/logreg_churn_roc.png", dpi=300, bbox_inches='tight')
 plt.show()
 
 #Feature Coefficients
@@ -66,4 +68,5 @@ plt.xlabel('Coefficient Value (Impact on Churn Likelihood)')
 plt.ylabel('Feature')
 plt.axvline(0, color='red', linestyle='--')
 plt.grid(axis='x', linestyle=':', alpha=0.6)
+plt.savefig("output/logreg_churn_importance.png", dpi=300, bbox_inches='tight')
 plt.show()
