@@ -83,8 +83,10 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 | `RF Drug200.py` | Ensemble drug classification |
 | `RF diabetes.py` | Ensemble diabetes prediction |
 
-![Feature Importance – RF Diabetes](output/rf_diabetes_importance.png)  
-*Top 5 important features*
+**Feature Importance (100 trees)**  
+<img src="output/rf_diabetes_importance.png" width="500"/>
+
+> **Top 3:** `Glucose` > `BMI` > `Age` — same pattern as DT, but more stable
 
 ---
 
