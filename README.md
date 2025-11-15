@@ -55,7 +55,8 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 <img src="output/concrete_residuals_before.png" width="600"/>
 <img src="output/concrete_residuals.png" width="600"/>
 
-> **Before vs After:** Polynomial features + removing weak predictors (`slag`, `fly_ash`) improved R² from ~60% → **~80%+** and fixed residual patterns.
+> **Before vs After:** Polynomial features + removing weak predictors (`blast_furnace_slag`, `fly_ash`)  
+> **improved R² from 62.8% → 76.3% (+13.5%)** and **reduced MSE from 96 → 61 (-36%)**.
 
 ---
 
