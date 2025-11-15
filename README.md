@@ -28,7 +28,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 | `LinearRegression Bengaluru Housing Data.py` | `total_sqft` | `price` | Predict house price |
 | `LinearRegression Heart Disease Dataset.py` | `bmi` | `chol` | Predict cholesterol from BMI |
 
-![Linear Reg – Horsepower vs Price](output/linear_reg_automobile.png)  
+![Linear Reg – Horsepower vs Price](output/linear_reg_automobile_pred.png)  
 *Scatter + fitted line (Automobile dataset)*
 
 ---
