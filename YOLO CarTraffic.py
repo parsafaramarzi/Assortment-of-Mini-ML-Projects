@@ -1,9 +1,18 @@
+import imageio
 from ultralytics import YOLO
 from ultralytics.utils.plotting import Annotator
 import cv2
 
 videodata = cv2.VideoCapture("Datasets/cartraffic03.mp4")
 model = YOLO("yolov8n.pt")
+
+success, first_frame = videodata.read()
+videodata.set(cv2.CAP_PROP_POS_FRAMES, 0)
+h, w = first_frame.shape[:2]
+aspect_ratio = w / h
+new_h = int(aspect_ratio * 640)
+new_w = 640
+writer = imageio.get_writer("output/yolo_detected.mp4", fps=30, codec='libx264', quality=8)
 
 colors = {
     "person": (0, 0, 255),
@@ -90,25 +99,30 @@ colors = {
 
 while videodata.isOpened():
     success, frame = videodata.read()
-    if success == True:
-        h, w = frame.shape[:2]
-        aspect_ratio = w / h
-        new_h = int(aspect_ratio * 640)
-        new_w = 640
-        frame = cv2.resize(frame, (new_h, new_w))
+    if not success:
+        break
 
-        results = model.track(frame)
-        boxes = results[0].boxes.xyxy
-        names = results[0].names
-        annotator = Annotator(frame, line_width=2, font_size=1)
-        classes = results[0].boxes.cls
+    frame = cv2.resize(frame, (new_h,new_w))
 
-        for box, cls in zip(boxes, classes):
-            x1, y1, x2, y2 = box
-            label = names[int(cls)]
-            color = colors.get(label, (255, 255, 255))
-            annotator.box_label((x1, y1, x2, y2), label, color)
-       
-        cv2.imshow("YOLO",frame)
-        if cv2.waitKey(1) == 13:
-            break
+    results = model.track(frame, persist=True)
+    annotator = Annotator(frame, line_width=2)
+
+    for box in results[0].boxes:
+        b = box.xyxy[0].cpu().numpy()
+        cls = int(box.cls[0].cpu().numpy())
+        label = results[0].names[cls]
+        color = colors.get(label, (255, 255, 255))
+        annotator.box_label(b, label, color=color)
+
+    annotated_frame = annotator.result()
+
+    writer.append_data(cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2RGB))
+    cv2.imshow("YOLO Detection", annotated_frame)
+
+    if cv2.waitKey(1) == 13:  # Enter
+        break
+
+videodata.release()
+writer.close()
+cv2.destroyAllWindows()
+print("Saved: output/yolo_detected.mp4")
