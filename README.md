@@ -67,8 +67,13 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 | `DT Drug200.py` | Classify drug type |
 | `DT diabetes.py` | Predict diabetes |
 
-![Decision Tree – Diabetes](output/dt_diabetes_tree.png)  
-*Visualised tree (depth ≤ 4)*
+**Decision Tree**  
+<img src="output/dt_diabetes_tree.png" width="700"/>
+
+**Feature Importance Ranking** (most → least important)  
+<img src="output/dt_diabetes_importance.png" width="500"/>
+
+> **Key insight:** `Glucose` is the dominant splitter, followed by `BMI`, `Age`, etc.
 
 ---
 
