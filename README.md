@@ -144,11 +144,15 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ### 9. K-Means — *Mall Customer Segmentation*
 - **`Kmeans Mall Customers.py`**
 
-![Elbow Plot](output/kmeans_elbow.png)  
-*Elbow method to choose k*
+**Elbow Plot (k = 1–99)**  
+<img src="output/kmeans_elbow.png" width="600"/>
 
-![Customer Clusters](output/kmeans_clusters.png)  
-*2-D scatter of Income vs Spending Score (k=5)*
+**Customer Clusters (k = 8)**  
+<img src="output/kmeans_clusters.png" width="650"/>
+
+> **Detected optimal k = 8** via automated elbow method  
+> 8 distinct customer groups identified  
+> Centroids shown as **black X**
 
 ---
 
