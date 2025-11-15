@@ -180,11 +180,14 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
   - **Model:** `yolov8n.pt`
   - **Input:** `Datasets/cartraffic03.mp4`
 
-<video src="output/yolo_detected.mp4" width="100%" controls></video>
+**Demo Frame (from Video)**  
+<img src="output/yolo_demo_frame.png" width="100%"/>
 
-> - 80+ classes detected with **custom BGR colors**  
-> - **No distortion** — aspect ratio preserved  
-> - Saved using `imageio` + `libx264` (plays everywhere)  
+**Full Video:** [Download](output/yolo_detected.mp4)
+
+> - 80+ classes with **custom colors**  
+> - **Aspect ratio preserved**  
+> - Saved MP4 + demo PNG  
 > - Press **Enter** to stop
 
 ---
