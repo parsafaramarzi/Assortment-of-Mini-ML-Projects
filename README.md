@@ -93,8 +93,14 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ### 6. Support Vector Machine (SVM)
 - **`SVM BreastCancer.py`** – kernels `linear`, `poly`, `rbf`
 
-![SVM Decision Boundaries](output/svm_breastcancer_boundaries.png)  
-*Linear vs RBF kernels (2-D projection)*
+**Best Model Decision Regions (2D PCA)**  
+<img src="output/svm_breastcancer_2d.png" width="600"/>
+
+**3D PCA View**  
+<img src="output/svm_breastcancer_3d.png" width="600"/>
+
+> **Legend:** Blue = Benign | Orange = Malignant  
+> **Best:** `SVM Linear` → ~95% accuracy
 
 ---
 
