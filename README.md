@@ -134,8 +134,8 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 <img src="output/logreg_churn_importance.png" width="600"/>
 
 > **Accuracy:** `81.60%` | **AUC:** `0.744`  
-> **Top drivers:** `country`, `age`, `products_number`  
-> **Protective:** `active_member` (strongest)
+> **Top churn driver:** `country` (strongest positive coefficient)  
+> **Strongest protector:** `active_member` (biggest negative coefficient)
 
 ---
 
