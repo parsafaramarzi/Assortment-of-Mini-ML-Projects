@@ -161,11 +161,15 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ### 10. Principal Component Analysis (PCA)
 - **`PCA Wine.py`**
 
-![Explained Variance Ratio](output/pca_wine_variance.png)  
-*Cumulative explained variance*
+**Explained Variance**  
+<img src="output/pca_wine_variance.png" width="550"/>
 
-![PCA 2-D Projection](output/pca_wine_2d.png)  
-*Wine classes in the first two principal components*
+**2D PCA Projection**  
+<img src="output/pca_wine_2d.png" width="600"/>
+
+> Reduced **11 → 2** features  
+> Captures **99.5%** of total variance  
+> Excellent compression with minimal information loss
 
 ---
 
