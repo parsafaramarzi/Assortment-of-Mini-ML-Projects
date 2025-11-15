@@ -1,4 +1,3 @@
-import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -6,9 +5,6 @@ from sklearn.model_selection import train_test_split
 from sklearn import svm
 from sklearn.metrics import accuracy_score
 from sklearn import decomposition
-
-OUTPUT_DIR = "output"
-os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 data = pd.read_csv("Datasets/breastcancer.csv")
 data = data.iloc[:, :-1]
@@ -74,54 +70,45 @@ for i, bar in enumerate(bars):
              f'{accuracies[i]:.3f}', ha='center', fontsize=10)
 plt.tight_layout()
 
-kernel_path = os.path.join(OUTPUT_DIR, "svm_breastcancer_kernels.png")
-plt.savefig(kernel_path, dpi=300, bbox_inches='tight')
-print(f"Kernel comparison saved -> {kernel_path}")
+plt.savefig("output/svm_breastcancer_kernels.png", dpi=300, bbox_inches='tight')
+print(f"Kernel comparison saved -> output/svm_breastcancer_kernels.png")
 plt.show()
 
 pca_2d = decomposition.PCA(n_components=2)
 pca_2d.fit(x_train)
 x_pca_2d = pca_2d.transform(x_test)
 
-plt.figure(figsize=(9, 7))
-colors = ['#1f77b4', '#ff7f0e']  # Blue = Benign, Orange = Malignant
-labels = ['Benign (0)', 'Malignant (1)']
+# --- 2D PCA Plot ---
+pca = decomposition.PCA(n_components=2)
+x_pca_2d = pca.fit_transform(x_test)
 
-for i, (label, color) in enumerate(zip(labels, colors)):
-    mask = Best_Prediction == i
-    plt.scatter(x_pca_2d[mask, 0], x_pca_2d[mask, 1],
-                c=color, label=label, s=70, edgecolor='k', alpha=0.8)
-
-plt.xlabel("Principal Component 1")
-plt.ylabel("Principal Component 2")
-plt.title(f"SVM ({Best_model}) - 2D PCA Projection")
-plt.legend(title="Prediction")
+plt.figure(figsize=(8, 6))
+plt.scatter(x_pca_2d[:, 0], x_pca_2d[:, 1], c=Best_Prediction, 
+            cmap='bwr', s=70, edgecolor='k')  # Blue=Benign, Red=Malignant
+plt.xlabel("PC1")
+plt.ylabel("PC2")
+plt.title(f"SVM ({Best_model}) - 2D PCA")
+plt.legend(handles=[
+    plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='blue', label='Benign'),
+    plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='red',  label='Malignant')
+], title="Prediction")
 plt.grid(True, alpha=0.3)
-
-pca2d_path = os.path.join(OUTPUT_DIR, "svm_breastcancer_2d.png")
-plt.savefig(pca2d_path, dpi=300, bbox_inches='tight')
-print(f"2D PCA saved -> {pca2d_path}")
+plt.savefig("output/svm_breastcancer_2d.png", dpi=300, bbox_inches='tight')
 plt.show()
 
-pca_3d = decomposition.PCA(n_components=3)
-pca_3d.fit(x_train)
-x_pca_3d = pca_3d.transform(x_test)
+# --- 3D PCA Plot ---
+pca = decomposition.PCA(n_components=3)
+x_pca_3d = pca.fit_transform(x_test)
 
-fig = plt.figure(figsize=(10, 8))
+fig = plt.figure(figsize=(9, 7))
 ax = fig.add_subplot(111, projection='3d')
-
-for i, (label, color) in enumerate(zip(labels, colors)):
-    mask = Best_Prediction == i
-    ax.scatter(x_pca_3d[mask, 0], x_pca_3d[mask, 1], x_pca_3d[mask, 2],
-               c=color, label=label, s=60, edgecolor='k', depthshade=True)
-
-ax.set_xlabel("PC1")
-ax.set_ylabel("PC2")
-ax.set_zlabel("PC3")
+ax.scatter(x_pca_3d[:, 0], x_pca_3d[:, 1], x_pca_3d[:, 2], 
+           c=Best_Prediction, cmap='bwr', s=60, edgecolor='k')
+ax.set_xlabel("PC1"); ax.set_ylabel("PC2"); ax.set_zlabel("PC3")
 ax.set_title(f"SVM ({Best_model}) - 3D PCA")
-ax.legend(title="Prediction")
-
-pca3d_path = os.path.join(OUTPUT_DIR, "svm_breastcancer_3d.png")
-plt.savefig(pca3d_path, dpi=300, bbox_inches='tight')
-print(f"3D PCA saved -> {pca3d_path}")
+ax.legend(handles=[
+    plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='blue', label='Benign'),
+    plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='red',  label='Malignant')
+], title="Prediction")
+plt.savefig("output/svm_breastcancer_3d.png", dpi=300, bbox_inches='tight')
 plt.show()

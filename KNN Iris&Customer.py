@@ -29,11 +29,29 @@ KNN.fit(x_customer_train, y_customer_train)
 y_customer_pred = KNN.predict(x_customer_test)
 print("Customer Gender Classification Accuracy:", accuracy_score(y_customer_test, y_customer_pred)*100)
 
-plt.subplot(1, 2, 1)
-plt.scatter(x_iris_test[:, 0], x_iris_test[:, 1], c=y_iris_pred, cmap='viridis')
-plt.title("Iris Classification")
+plt.figure(figsize=(7, 5))
+plt.scatter(x_iris_test[:, 0], x_iris_test[:, 1], c=y_iris_pred, 
+            cmap='brg', s=80, edgecolor='k')
+plt.xlabel("Sepal Length"); plt.ylabel("Sepal Width")
+plt.title("KNN Iris Classification")
+plt.legend(handles=[
+    plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='red',   label='Setosa'),
+    plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='blue',  label='Versicolor'),
+    plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='green', label='Virginica')
+], title="Species")
+plt.grid(True, alpha=0.3)
+plt.savefig("output/knn_iris.png", dpi=300, bbox_inches='tight')
+plt.show()
 
-plt.subplot(1, 2, 2)
-plt.scatter(x_customer_test["Age"], x_customer_test["Annual Income (k$)"], c=y_customer_pred, cmap='viridis')
-plt.title("Customer Gender Classification")
+plt.figure(figsize=(7, 5))
+plt.scatter(x_customer_test["Age"], x_customer_test["Annual Income (k$)"],
+            c=y_customer_pred, cmap='bwr', s=80, edgecolor='k')  # Blue=0, Red=1
+plt.xlabel("Age"); plt.ylabel("Annual Income (k$)")
+plt.title("KNN Customer Gender")
+plt.legend(handles=[
+    plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='blue', label='Male'),
+    plt.Line2D([0], [0], marker='o', color='w', markerfacecolor='red',  label='Female')
+], title="Gender")
+plt.grid(True, alpha=0.3)
+plt.savefig("output/knn_customer.png", dpi=300, bbox_inches='tight')
 plt.show()

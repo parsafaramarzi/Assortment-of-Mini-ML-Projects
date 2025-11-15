@@ -1,13 +1,9 @@
-import os
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn import tree
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score
-
-OUTPUT_DIR = "output"
-os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 data = pd.read_csv("Datasets/diabetes.csv")
 
@@ -31,9 +27,8 @@ print(f"Accuracy: {accuracy*100:.2f}%")
 
 fig = plt.figure(figsize=(30, 20))
 tree.plot_tree(model, filled=True, feature_names=x.columns, class_names=["No Diabetes", "Diabetes"], fontsize=3)
-tree_path = os.path.join(OUTPUT_DIR, "dt_diabetes_tree.png")
-fig.savefig(tree_path, dpi=300, bbox_inches='tight')
-print(f"Tree saved -> {tree_path}")
+fig.savefig("output/dt_diabetes_tree.png", dpi=300, bbox_inches='tight')
+print(f"Tree saved -> output/dt_diabetes_tree.png")
 plt.show()
 
 plt.figure(figsize=(10, 6))
@@ -43,7 +38,6 @@ plt.title('Decision Tree - Feature Importance Ranking')
 plt.gca().invert_yaxis()
 plt.tight_layout()
 
-imp_path = os.path.join(OUTPUT_DIR, "dt_diabetes_importance.png")
-plt.savefig(imp_path, dpi=300, bbox_inches='tight')
-print(f"Importance plot saved -> {imp_path}")
+plt.savefig("output/dt_diabetes_importance.png", dpi=300, bbox_inches='tight')
+print(f"Importance plot saved -> output/dt_diabetes_importance.png")
 plt.show()

@@ -1,12 +1,8 @@
-import os
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
-
-OUTPUT_DIR = "output"
-os.makedirs(OUTPUT_DIR, exist_ok=True)
     
 data = pd.read_csv("Datasets/Automobile_data.csv")
 
@@ -20,7 +16,7 @@ plt.xlabel('Horsepower')
 plt.ylabel('Price')
 plt.title('Horsepower vs Price')
 plt.grid(True, linestyle='--', alpha=0.5)
-plt.savefig(os.path.join(OUTPUT_DIR, "poly_reg_automobile_scatter.png"), dpi=200, bbox_inches='tight')
+plt.savefig("output/poly_reg_automobile_scatter.png", dpi=200, bbox_inches='tight')
 plt.show()
 
 horsepower = data['horsepower'].values
@@ -55,5 +51,5 @@ plt.ylabel('Price')
 plt.title(f'Polynomial Regression (Degree = {bestdegree}, R² = {bestaccuracy:.3f})')
 plt.legend()
 plt.grid(True, linestyle='--', alpha=0.5)
-plt.savefig(os.path.join(OUTPUT_DIR, "poly_reg_automobile.png"), dpi=200, bbox_inches='tight')
+plt.savefig("output/poly_reg_automobile.png", dpi=200, bbox_inches='tight')
 plt.show()

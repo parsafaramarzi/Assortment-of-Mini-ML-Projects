@@ -1,11 +1,8 @@
-import os
 import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
-
-OUTPUT_DIR = "output"
 
 data = pd.read_csv("Datasets/Automobile_data.csv")
 
@@ -18,9 +15,8 @@ plt.scatter(data['horsepower'], data['price'])
 plt.xlabel("Horsepower")
 plt.ylabel("Price")
 plt.title("Horsepower vs Price")
-scatter_path = os.path.join(OUTPUT_DIR, "linear_reg_automobile.png")
-plt.savefig(scatter_path, dpi=300, bbox_inches='tight')
-print(f"Saved scatter plot -> {scatter_path}")
+plt.savefig("output/linear_reg_automobile.png", dpi=300, bbox_inches='tight')
+print(f"Saved scatter plot -> output/linear_reg_automobile.png")
 plt.show()
 
 X = data[['horsepower']]
@@ -41,7 +37,6 @@ plt.xlabel("Horsepower")
 plt.ylabel("Price")
 plt.title(f"Actual vs Predicted Prices (R² = {r2_score(y_test, y_pred):.3f})")
 plt.legend()
-pred_path = os.path.join(OUTPUT_DIR, "linear_reg_automobile_pred.png")
-plt.savefig(pred_path, dpi=300, bbox_inches='tight')
-print(f"Saved prediction plot -> {pred_path}")
+plt.savefig("output/linear_reg_automobile_pred.png", dpi=300, bbox_inches='tight')
+print(f"Saved prediction plot -> output/linear_reg_automobile_pred.png")
 plt.show()

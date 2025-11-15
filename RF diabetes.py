@@ -3,10 +3,6 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import accuracy_score
-import os
-
-OUTPUT_DIR = "output"
-os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 data = pd.read_csv("Datasets/diabetes.csv")
 
@@ -38,7 +34,6 @@ plt.title('Random Forest - Feature Importance (Diabetes)')
 plt.gca().invert_yaxis()  # Most important on top
 plt.tight_layout()
 
-imp_path = os.path.join(OUTPUT_DIR, "rf_diabetes_importance.png")
-plt.savefig(imp_path, dpi=300, bbox_inches='tight')
-print(f"Importance plot saved -> {imp_path}")
+plt.savefig("output/rf_diabetes_importance.png", dpi=300, bbox_inches='tight')
+print(f"Importance plot saved -> output/rf_diabetes_importance.png")
 plt.show()
