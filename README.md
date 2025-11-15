@@ -14,8 +14,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ## Repository Overview
 ### Folders
 - **`Datasets/`** – All datasets used across projects.  
-- **`notebooks/`** *(optional)* – Jupyter notebooks for interactive exploration.  
-- **`output/`** *(optional)* – Saved plots, models, or videos.
+- **`output/`** – Saved plots, models, or videos.
 
 ---
 
