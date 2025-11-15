@@ -124,11 +124,18 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ### 8. Logistic Regression — *Bank Customer Churn*
 - **`LogisticRegression Bank Customer Churn.py`**
 
-![Confusion Matrix Heatmap](output/logreg_churn_confmat.png)  
-*Confusion matrix (seaborn heatmap)*
+**Confusion Matrix**  
+<img src="output/logreg_churn_confmat.png" width="500"/>
 
-![ROC Curve + AUC](output/logreg_churn_roc.png)  
-*ROC curve with AUC = 0.86*
+**ROC Curve**  
+<img src="output/logreg_churn_roc.png" width="500"/>
+
+**Feature Importance (Coefficients)**  
+<img src="output/logreg_churn_importance.png" width="600"/>
+
+> **Accuracy:** `81.60%` | **AUC:** `0.744`  
+> **Top drivers of churn:** `age`, `balance`, `products_number` (positive coefficients → higher risk)  
+> **Protective factors:** `credit_card`, `active_member` (negative coefficients → lower risk)
 
 ---
 
