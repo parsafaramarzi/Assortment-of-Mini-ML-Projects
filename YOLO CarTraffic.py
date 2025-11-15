@@ -13,6 +13,8 @@ aspect_ratio = w / h
 new_h = int(aspect_ratio * 640)
 new_w = 640
 writer = imageio.get_writer("output/yolo_detected.mp4", fps=30, codec='libx264', quality=8)
+save_demo_frame = True
+frame_count = 0
 
 colors = {
     "person": (0, 0, 255),
@@ -116,6 +118,12 @@ while videodata.isOpened():
 
     annotated_frame = annotator.result()
 
+    if save_demo_frame and frame_count == 30:
+        cv2.imwrite("output/yolo_demo_frame.png", annotated_frame)
+        print("Demo frame saved: output/yolo_demo_frame.png")
+        save_demo_frame = False
+    frame_count += 1
+    
     writer.append_data(cv2.cvtColor(annotated_frame, cv2.COLOR_BGR2RGB))
     cv2.imshow("YOLO Detection", annotated_frame)
 
