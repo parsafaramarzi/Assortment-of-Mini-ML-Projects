@@ -216,6 +216,24 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ---
 
+## Computer Vision — Instance Segmentation
+
+### 13. YOLOv11 Instance Segmentation
+- **`YOLOv11_Segmentation.py`**
+  - **Model:** `yolo11x-seg.pt`
+  - **Input:** `Datasets/crowd06.mp4`
+  - **Goal:** Precise pixel-level segmentation of objects in dense crowd environments.
+
+**Demo Frame (from Video)** <img src="output/yolov11_Segmentation_demo_frame.png" width="100%"/>
+
+**Full Video:** [Download](output/yolov11_Segmentation.mp4)
+
+> - **Semi-Transparent Masks:** Uses alpha blending (`0.5`) to color objects while keeping background visible.
+> - **Readable Labels:** Implements custom text drawing with **black outlines** to ensure labels are readable against any color.
+> - **High Precision:** Leveraging the `yolo11x` (extra large) model for superior segmentation boundaries.
+
+---
+
 ## Getting Started
 
 ### Requirements
