@@ -197,6 +197,25 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ---
 
+## Computer Vision — Pose Estimation
+
+### 12. YOLOv11 Real-Time Human Pose
+- **`YOLO-Pose-PersonMoving.py`**
+  - **Model:** `yolo11x-pose.pt`
+  - **Input:** `Datasets/personsport04.mp4`
+  - **Goal:** Real-time **17-point keypoint detection** and skeleton visualization for moving persons.
+
+**Demo Frame (from Video)** <img src="output/yolov11_pose_estimator_demo_frame.png" width="100%"/>
+
+**Full Video:** [Download](output/yolov11_pose_estimator_detected.mp4)
+
+> - Uses **YOLOv11x-pose** for high-accuracy keypoint estimation.
+> - Custom `draw_pose` function for drawing **keypoints (red)** and **bones (green)**.
+> - Output is written using `imageio` for efficient video encoding.
+> - Press **Enter** to stop.
+
+---
+
 ## Getting Started
 
 ### Requirements
