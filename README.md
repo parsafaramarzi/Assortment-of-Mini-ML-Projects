@@ -67,9 +67,12 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 | `DT Drug200.py` | Classify drug type |
 | `DT diabetes.py` | Predict diabetes |
 
-**Decision Tree** <img src="output/dt_diabetes_tree.png" width="700"/>
+**Decision Tree**
+
+<img src="output/dt_diabetes_tree.png" width="700"/>
 
 **Feature Importance Ranking** (most → least important)  
+
 <img src="output/dt_diabetes_importance.png" width="500"/>
 
 > **Key insight:** `Glucose` is the dominant splitter, followed by `BMI`, `Age`, etc.
@@ -82,7 +85,9 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 | `RF Drug200.py` | Ensemble drug classification |
 | `RF diabetes.py` | Ensemble diabetes prediction |
 
-**Feature Importance (100 trees)** <img src="output/rf_diabetes_importance.png" width="500"/>
+**Feature Importance (100 trees)**
+
+<img src="output/rf_diabetes_importance.png" width="500"/>
 
 > **Top 3:** `Glucose` > `BMI` > `Age` — same pattern as DT, but more stable
 
@@ -127,11 +132,17 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ### 8. Logistic Regression — *Bank Customer Churn*
 - **`LogisticRegression Bank Customer Churn.py`**
 
-**Confusion Matrix** <img src="output/logreg_churn_confmat.png" width="500"/>
+**Confusion Matrix**
 
-**ROC Curve** <img src="output/logreg_churn_roc.png" width="500"/>
+<img src="output/logreg_churn_confmat.png" width="500"/>
 
-**Feature Importance (Coefficients)** <img src="output/logreg_churn_importance.png" width="600"/>
+**ROC Curve**
+
+<img src="output/logreg_churn_roc.png" width="500"/>
+
+**Feature Importance (Coefficients)**
+
+<img src="output/logreg_churn_importance.png" width="600"/>
 
 > **Accuracy:** `81.60%` | **AUC:** `0.744`  
 > **Top churn driver:** `country` (strongest positive coefficient)  
@@ -144,9 +155,13 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ### 9. K-Means — *Mall Customer Segmentation*
 - **`Kmeans Mall Customers.py`**
 
-**Elbow Plot (k = 1–99)** <img src="output/kmeans_elbow.png" width="600"/>
+**Elbow Plot (k = 1–99)** 
 
-**Customer Clusters (k = 8)** <img src="output/kmeans_clusters.png" width="650"/>
+<img src="output/kmeans_elbow.png" width="600"/>
+
+**Customer Clusters (k = 8)** 
+
+<img src="output/kmeans_clusters.png" width="650"/>
 
 > **Detected optimal k = 8** via automated elbow method  
 > 8 distinct customer groups identified  
@@ -159,9 +174,13 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ### 10. Principal Component Analysis (PCA)
 - **`PCA Wine.py`**
 
-**Explained Variance** <img src="output/pca_wine_variance.png" width="550"/>
+**Explained Variance** 
 
-**2D PCA Projection** <img src="output/pca_wine_2d.png" width="600"/>
+<img src="output/pca_wine_variance.png" width="550"/>
+
+**2D PCA Projection** 
+
+<img src="output/pca_wine_2d.png" width="600"/>
 
 > Reduced **11 → 2** features  
 > Captures **99.5%** of total variance  
