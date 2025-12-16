@@ -3,7 +3,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Last Updated](https://img.shields.io/badge/last_updated-November_2025-blue)
 
-A growing collection of **mini machine learning projects**, each focused on a key ML algorithm or concept — **regression, classification, clustering, dimensionality reduction, and computer vision** — using real-world datasets.
+A growing collection of **mini machine learning projects**, each focused on a key ML algorithm or concept — **regression, classification, clustering, and dimensionality reduction** — using real-world datasets.
 
 Each project is **self-contained**, **beginner-friendly**, and ideal for **hands-on learning** and **portfolio building**.
 
@@ -14,7 +14,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ## Repository Overview
 ### Folders
 - **`Datasets/`** – All datasets used across projects.  
-- **`output/`** – Saved plots, models, or videos.
+- **`output/`** – Saved plots and models.
 
 ---
 
@@ -67,8 +67,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 | `DT Drug200.py` | Classify drug type |
 | `DT diabetes.py` | Predict diabetes |
 
-**Decision Tree**  
-<img src="output/dt_diabetes_tree.png" width="700"/>
+**Decision Tree** <img src="output/dt_diabetes_tree.png" width="700"/>
 
 **Feature Importance Ranking** (most → least important)  
 <img src="output/dt_diabetes_importance.png" width="500"/>
@@ -83,8 +82,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 | `RF Drug200.py` | Ensemble drug classification |
 | `RF diabetes.py` | Ensemble diabetes prediction |
 
-**Feature Importance (100 trees)**  
-<img src="output/rf_diabetes_importance.png" width="500"/>
+**Feature Importance (100 trees)** <img src="output/rf_diabetes_importance.png" width="500"/>
 
 > **Top 3:** `Glucose` > `BMI` > `Age` — same pattern as DT, but more stable
 
@@ -129,14 +127,11 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ### 8. Logistic Regression — *Bank Customer Churn*
 - **`LogisticRegression Bank Customer Churn.py`**
 
-**Confusion Matrix**  
-<img src="output/logreg_churn_confmat.png" width="500"/>
+**Confusion Matrix** <img src="output/logreg_churn_confmat.png" width="500"/>
 
-**ROC Curve**  
-<img src="output/logreg_churn_roc.png" width="500"/>
+**ROC Curve** <img src="output/logreg_churn_roc.png" width="500"/>
 
-**Feature Importance (Coefficients)**  
-<img src="output/logreg_churn_importance.png" width="600"/>
+**Feature Importance (Coefficients)** <img src="output/logreg_churn_importance.png" width="600"/>
 
 > **Accuracy:** `81.60%` | **AUC:** `0.744`  
 > **Top churn driver:** `country` (strongest positive coefficient)  
@@ -149,11 +144,9 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ### 9. K-Means — *Mall Customer Segmentation*
 - **`Kmeans Mall Customers.py`**
 
-**Elbow Plot (k = 1–99)**  
-<img src="output/kmeans_elbow.png" width="600"/>
+**Elbow Plot (k = 1–99)** <img src="output/kmeans_elbow.png" width="600"/>
 
-**Customer Clusters (k = 8)**  
-<img src="output/kmeans_clusters.png" width="650"/>
+**Customer Clusters (k = 8)** <img src="output/kmeans_clusters.png" width="650"/>
 
 > **Detected optimal k = 8** via automated elbow method  
 > 8 distinct customer groups identified  
@@ -166,11 +159,9 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ### 10. Principal Component Analysis (PCA)
 - **`PCA Wine.py`**
 
-**Explained Variance**  
-<img src="output/pca_wine_variance.png" width="550"/>
+**Explained Variance** <img src="output/pca_wine_variance.png" width="550"/>
 
-**2D PCA Projection**  
-<img src="output/pca_wine_2d.png" width="600"/>
+**2D PCA Projection** <img src="output/pca_wine_2d.png" width="600"/>
 
 > Reduced **11 → 2** features  
 > Captures **99.5%** of total variance  
@@ -178,64 +169,8 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ---
 
-## Computer Vision — Object Detection
-
-### 11. YOLOv8 Real-Time Object Tracking
-- **`YOLOv8 Car Traffic Detection.py`**
-  - **Model:** `yolov8n.pt`
-  - **Input:** `Datasets/cartraffic03.mp4`
-
-**Demo Frame (from Video)**  
-<img src="output/yolo_demo_frame.png" width="100%"/>
-
-**Full Video:** [Download](output/yolo_detected.mp4)
-
-> - 80+ classes with **custom colors**  
-> - **Aspect ratio preserved**  
-> - Saved MP4 + demo PNG  
-> - Press **Enter** to stop
-
----
-
-## Computer Vision — Pose Estimation
-
-### 12. YOLOv11 Real-Time Human Pose
-- **`YOLO-Pose-PersonMoving.py`**
-  - **Model:** `yolo11x-pose.pt`
-  - **Input:** `Datasets/personsport04.mp4`
-  - **Goal:** Real-time **17-point keypoint detection** and skeleton visualization for moving persons.
-
-**Demo Frame (from Video)** <img src="output/yolov11_pose_estimator_demo_frame.png" width="100%"/>
-
-**Full Video:** [Download](output/yolov11_pose_estimator_detected.mp4)
-
-> - Uses **YOLOv11x-pose** for high-accuracy keypoint estimation.
-> - Custom `draw_pose` function for drawing **keypoints (red)** and **bones (green)**.
-> - Output is written using `imageio` for efficient video encoding.
-> - Press **Enter** to stop.
-
----
-
-## Computer Vision — Instance Segmentation
-
-### 13. YOLOv11 Instance Segmentation
-- **`YOLOv11_Segmentation.py`**
-  - **Model:** `yolo11x-seg.pt`
-  - **Input:** `Datasets/crowd06.mp4`
-  - **Goal:** Precise pixel-level segmentation of objects in dense crowd environments.
-
-**Demo Frame (from Video)** <img src="output/yolov11_Segmentation_demo_frame.png" width="100%"/>
-
-**Full Video:** [Download](output/yolov11_Segmentation.mp4)
-
-> - **Semi-Transparent Masks:** Uses alpha blending (`0.5`) to color objects while keeping background visible.
-> - **Readable Labels:** Implements custom text drawing with **black outlines** to ensure labels are readable against any color.
-> - **High Precision:** Leveraging the `yolo11x` (extra large) model for superior segmentation boundaries.
-
----
-
 ## Getting Started
 
 ### Requirements
 ```bash
-pip install pandas numpy scikit-learn matplotlib seaborn opencv-python ultralytics imageio imageio-ffmpeg
+pip install pandas numpy scikit-learn matplotlib seaborn
