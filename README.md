@@ -174,7 +174,7 @@ A systematic search across $k \in [2, 10]$, 3 distance metrics, and 4 linkage me
 
 | Parameter | Best Result | Configuration | Score |
 | :--- | :--- | :--- | :--- |
-| **Optimal Clusters ($k$)** | **5** | **Euclidean + Ward** | **0.4045** (Highest Silhouette Score) |
+| **Optimal Clusters ($k$)** | **6** | **Euclidean + Ward** | **0.4045** |
 | **Best Distance Metric** | Euclidean | | |
 | **Best Linkage Method** | Ward | | |
 
@@ -187,9 +187,9 @@ The bar plot below illustrates the Silhouette Score for the three primary linkag
 
 ---
 
-#### 📈 Comprehensive $3 \times 3$ Cluster Comparison ($k=5$)
+#### 📈 Comprehensive $3 \times 3$ Cluster Comparison ($k=6$)
 
-To visualize the dramatic effect of hyperparameters, we fixed the number of clusters at the optimal value ($k=5$) and generated a $3 \times 3$ grid comparing all combinations of Distance Metrics (Rows: Euclidean, Manhattan, Cosine) and Linkage Methods (Columns: Single, Complete, Average).
+To visualize the dramatic effect of hyperparameters, we fixed the number of clusters at the optimal value ($k=6$) and generated a $3 \times 3$ grid comparing all combinations of Distance Metrics (Rows: Euclidean, Manhattan, Cosine) and Linkage Methods (Columns: Single, Complete, Average).
 
 ##### 1. Dendrogram Analysis (3x3 Grid)
 
@@ -199,9 +199,9 @@ These plots show the hierarchy of cluster formation. Note the differences in clu
 
 ##### 2. 3D Cluster Visualization (3x3 Grid)
 
-These scatter plots show the five clusters in the 3D feature space (Age, Annual Income, Spending Score) as grouped by each parameter combination.
+These scatter plots show the **six** clusters in the 3D feature space (Age, Annual Income, Spending Score) as grouped by each parameter combination.
 
-![3D Cluster Comparison (k=5 3 x 3 Grid)](output/hc_clusters_3d_9_comparison.png)
+![3D Cluster Comparison (k=6 3 x 3 Grid)](output/hc_clusters_3d_9_comparison.png)
 
 ##### 3. Heatmap Visualization (9 Separate Clustermaps)
 
@@ -209,11 +209,11 @@ The clustered heatmaps show the scaled customer features. Customers are reordere
 
 | Euclidean / Single | Euclidean / Complete | Euclidean / Average |
 | :---: | :---: | :---: |
-| ![Heatmap Euclidean/Single](output/hc_clustered_heatmap_euclidean_single_k5.png) | ![Heatmap Euclidean/Complete](output/hc_clustered_heatmap_euclidean_complete_k5.png) | ![Heatmap Euclidean/Average](output/hc_clustered_heatmap_euclidean_average_k5.png) |
+| ![Heatmap Euclidean/Single](output/hc_clustered_heatmap_euclidean_single_k6.png) | ![Heatmap Euclidean/Complete](output/hc_clustered_heatmap_euclidean_complete_k6.png) | ![Heatmap Euclidean/Average](output/hc_clustered_heatmap_euclidean_average_k6.png) |
 | **Manhattan / Single** | **Manhattan / Complete** | **Manhattan / Average** |
-| ![Heatmap Manhattan/Single](output/hc_clustered_heatmap_cityblock_single_k5.png) | ![Heatmap Manhattan/Complete](output/hc_clustered_heatmap_cityblock_complete_k5.png) | ![Heatmap Manhattan/Average](output/hc_clustered_heatmap_cityblock_average_k5.png) |
+| ![Heatmap Manhattan/Single](output/hc_clustered_heatmap_cityblock_single_k6.png) | ![Heatmap Manhattan/Complete](output/hc_clustered_heatmap_cityblock_complete_k6.png) | ![Heatmap Manhattan/Average](output/hc_clustered_heatmap_cityblock_average_k6.png) |
 | **Cosine / Single** | **Cosine / Complete** | **Cosine / Average** |
-| ![Heatmap Cosine/Single](output/hc_clustered_heatmap_cosine_single_k5.png) | ![Heatmap Cosine/Complete](output/hc_clustered_heatmap_cosine_complete_k5.png) | ![Heatmap Cosine/Average](output/hc_clustered_heatmap_cosine_average_k5.png) |
+| ![Heatmap Cosine/Single](output/hc_clustered_heatmap_cosine_single_k6.png) | ![Heatmap Cosine/Complete](output/hc_clustered_heatmap_cosine_complete_k6.png) | ![Heatmap Cosine/Average](output/hc_clustered_heatmap_cosine_average_k6.png) |
 
 ---
 
@@ -237,4 +237,3 @@ The clustered heatmaps show the scaled customer features. Customers are reordere
 ### Requirements
 ```bash
 pip install pandas numpy scikit-learn matplotlib seaborn
-```
