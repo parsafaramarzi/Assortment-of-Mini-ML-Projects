@@ -174,9 +174,9 @@ A systematic search across $k \in [2, 10]$, 3 distance metrics, and 4 linkage me
 
 | Parameter | Best Result | Configuration | Score |
 | :--- | :--- | :--- | :--- |
-| **Optimal Clusters ($k$)** | **6** | **Euclidean + Ward** | **0.4045** |
-| **Best Distance Metric** | Euclidean | | |
-| **Best Linkage Method** | Ward | | |
+| **Optimal Clusters ($k$)** | **6** | **Cosine + Average** | **0.7033** |
+| **Best Distance Metric** | Cosine | | |
+| **Best Linkage Method** | Average | | |
 
 #### 📊 Performance Comparison: Silhouette Score
 
