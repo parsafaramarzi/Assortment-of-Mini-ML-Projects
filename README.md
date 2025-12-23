@@ -1,7 +1,7 @@
 # Assortment of Mini ML Projects
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
-![Last Updated](https://img.shields.io/badge/last_updated-November_2025-blue)
+![Last Updated](https://img.shields.io/badge/last_updated-December_2025-blue)
 
 A growing collection of **mini machine learning projects**, each focused on a key ML algorithm or concept — **regression, classification, clustering, and dimensionality reduction** — using real-world datasets.
 
@@ -13,7 +13,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ## Repository Overview
 ### Folders
-- **`Datasets/`** – All datasets used across projects.  
+- **`Datasets/`** – All datasets used across projects. 
 - **`output/`** – Saved plots and models.
 
 ---
@@ -54,7 +54,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 <img src="output/concrete_residuals_before.png" width="600"/>
 <img src="output/concrete_residuals.png" width="600"/>
 
-> **Before vs After:** Polynomial features + removing weak predictors (`blast_furnace_slag`, `fly_ash`)  
+> **Before vs After:** Polynomial features + removing weak predictors (`blast_furnace_slag`, `fly_ash`) 
 > **improved R² from 62.8% → 76.3% (+13.5%)** and **reduced MSE from 96 → 61 (-36%)**.
 
 ---
@@ -71,7 +71,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 <img src="output/dt_diabetes_tree.png" width="700"/>
 
-**Feature Importance Ranking** (most → least important)  
+**Feature Importance Ranking** (most → least important) 
 
 <img src="output/dt_diabetes_importance.png" width="500"/>
 
@@ -108,7 +108,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 <img src="output/svm_breastcancer_3d.png" width="600"/>
 
-> **Legend:** Blue = Benign | Orange = Malignant  
+> **Legend:** Blue = Benign | Orange = Malignant 
 > **Best:** `SVM Linear` → ~95% accuracy
 
 ---
@@ -124,7 +124,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 <img src="output/knn_customer.png" width="500"/>
 
-> **Legend:** Blue = Setosa/Male | Orange = Versicolor/Female | Green = Virginica  
+> **Legend:** Blue = Setosa/Male | Orange = Versicolor/Female | Green = Virginica 
 > **Iris:** ~100% | **Gender:** ~60% (challenging overlap)
 
 ---
@@ -144,46 +144,90 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 <img src="output/logreg_churn_importance.png" width="600"/>
 
-> **Accuracy:** `81.60%` | **AUC:** `0.744`  
-> **Top churn driver:** `country` (strongest positive coefficient)  
+> **Accuracy:** `81.60%` | **AUC:** `0.744` 
+> **Top churn driver:** `country` (strongest positive coefficient) 
 > **Strongest protector:** `active_member` (biggest negative coefficient)
 
 ---
 
-## Clustering Project
+## Clustering Projects
 
 ### 9. K-Means — *Mall Customer Segmentation*
 - **`Kmeans Mall Customers.py`**
 
-**Elbow Plot (k = 1–99)** 
+**Elbow Plot (k = 1–99)** <img src="output/kmeans_elbow.png" width="600"/>
 
-<img src="output/kmeans_elbow.png" width="600"/>
+**Customer Clusters (k = 8)** <img src="output/kmeans_clusters.png" width="650"/>
 
-**Customer Clusters (k = 8)** 
-
-<img src="output/kmeans_clusters.png" width="650"/>
-
-> **Detected optimal k = 8** via automated elbow method  
-> 8 distinct customer groups identified  
+> **Detected optimal k = 8** via automated elbow method 
+> 8 distinct customer groups identified 
 > Centroids shown as **black X**
+
+### 10. Hierarchical Clustering (HC) — *Mall Customer Segmentation*
+- **`HierarchicalClustering Mall Customers.py`**
+
+This project provides a comprehensive analysis of customer segmentation using **Hierarchical Clustering (HC)**. A rigorous hyperparameter search was performed, comparing 3 different distance metrics and 4 linkage methods to determine the optimal clustering configuration.
+
+#### 📌 Optimal Configuration Summary
+
+A systematic search across $k \in [2, 10]$, 3 distance metrics, and 4 linkage methods was performed. The configuration yielding the highest Silhouette Score was chosen as the optimal model.
+
+| Parameter | Best Result | Configuration | Score |
+| :--- | :--- | :--- | :--- |
+| **Optimal Clusters ($k$)** | **5** | **Euclidean + Ward** | **0.4045** (Highest Silhouette Score) |
+| **Best Distance Metric** | Euclidean | | |
+| **Best Linkage Method** | Ward | | |
+
+#### 📊 Performance Comparison: Silhouette Score
+
+The bar plot below illustrates the Silhouette Score for the three primary linkage methods (Single, Complete, Average) combined with three distance metrics across the range of cluster counts ($k=2$ to $k=10$).
+
+**Visualizing the Optimal $k$ Search:**
+![Silhouette Score Comparison (9 Configurations)](output/hc_silhouette_scores_9_configs.png)
+
+---
+
+#### 📈 Comprehensive $3 \times 3$ Cluster Comparison ($k=5$)
+
+To visualize the dramatic effect of hyperparameters, we fixed the number of clusters at the optimal value ($k=5$) and generated a $3 \times 3$ grid comparing all combinations of Distance Metrics (Rows: Euclidean, Manhattan, Cosine) and Linkage Methods (Columns: Single, Complete, Average).
+
+##### 1. Dendrogram Analysis (3x3 Grid)
+
+These plots show the hierarchy of cluster formation. Note the differences in cluster height and shape, particularly the "chaining" behavior evident in Single Linkage plots.
+
+![Hierarchical Clustering: Dendrogram Comparison (3 x 3 Grid)](output/hc_dendrograms_9_comparison.png)
+
+##### 2. 3D Cluster Visualization (3x3 Grid)
+
+These scatter plots show the five clusters in the 3D feature space (Age, Annual Income, Spending Score) as grouped by each parameter combination.
+
+![3D Cluster Comparison (k=5 3 x 3 Grid)](output/hc_clusters_3d_9_comparison.png)
+
+##### 3. Heatmap Visualization (9 Separate Clustermaps)
+
+The clustered heatmaps show the scaled customer features. Customers are reordered based on the dendrogram structure for each specific metric/linkage combination, allowing for visual inspection of the feature values within the resulting clusters.
+
+| Euclidean / Single | Euclidean / Complete | Euclidean / Average |
+| :---: | :---: | :---: |
+| ![Heatmap Euclidean/Single](output/hc_clustered_heatmap_euclidean_single_k5.png) | ![Heatmap Euclidean/Complete](output/hc_clustered_heatmap_euclidean_complete_k5.png) | ![Heatmap Euclidean/Average](output/hc_clustered_heatmap_euclidean_average_k5.png) |
+| **Manhattan / Single** | **Manhattan / Complete** | **Manhattan / Average** |
+| ![Heatmap Manhattan/Single](output/hc_clustered_heatmap_cityblock_single_k5.png) | ![Heatmap Manhattan/Complete](output/hc_clustered_heatmap_cityblock_complete_k5.png) | ![Heatmap Manhattan/Average](output/hc_clustered_heatmap_cityblock_average_k5.png) |
+| **Cosine / Single** | **Cosine / Complete** | **Cosine / Average** |
+| ![Heatmap Cosine/Single](output/hc_clustered_heatmap_cosine_single_k5.png) | ![Heatmap Cosine/Complete](output/hc_clustered_heatmap_cosine_complete_k5.png) | ![Heatmap Cosine/Average](output/hc_clustered_heatmap_cosine_average_k5.png) |
 
 ---
 
 ## Dimensionality Reduction
 
-### 10. Principal Component Analysis (PCA)
+### 11. Principal Component Analysis (PCA)
 - **`PCA Wine.py`**
 
-**Explained Variance** 
+**Explained Variance** <img src="output/pca_wine_variance.png" width="550"/>
 
-<img src="output/pca_wine_variance.png" width="550"/>
+**2D PCA Projection** <img src="output/pca_wine_2d.png" width="600"/>
 
-**2D PCA Projection** 
-
-<img src="output/pca_wine_2d.png" width="600"/>
-
-> Reduced **11 → 2** features  
-> Captures **99.5%** of total variance  
+> Reduced **11 → 2** features 
+> Captures **99.5%** of total variance 
 > Excellent compression with minimal information loss
 
 ---
@@ -193,3 +237,4 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 ### Requirements
 ```bash
 pip install pandas numpy scikit-learn matplotlib seaborn
+```
