@@ -163,6 +163,8 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 > 8 distinct customer groups identified 
 > Centroids shown as **black X**
 
+---
+
 ### 10. Hierarchical Clustering (HC) — *Mall Customer Segmentation*
 - **`HierarchicalClustering Mall Customers.py`**
 
@@ -217,9 +219,79 @@ The clustered heatmaps show the scaled customer features. Customers are reordere
 
 ---
 
+### 11. DBSCAN — *Wine Clustering with Hyperparameter Tuning*
+- **`DBSCAN_WineData.py`**
+
+This project performs **comprehensive density-based clustering** on the Wine dataset using DBSCAN with exhaustive hyperparameter tuning across **three evaluation metrics**: Silhouette Score, Calinski-Harabasz Score, and Davies-Bouldin Score.
+
+#### 📌 Optimal Configurations Found
+
+| Optimization Metric | Best ε | Best M | Score |
+| :--- | :--- | :--- | :--- |
+| **Silhouette Max** | 2.884 | 19 | 0.2353 |
+| **Calinski-Harabasz Max** | 2.784 | 16 | 35.1 |
+| **Davies-Bouldin Min** | 1.584 | 5 | 1.3873 |
+| **Elbow (Sil M)** | 3.426 | 19 | — |
+| **Elbow (CH M)** | 3.220 | 16 | — |
+| **Elbow (DB M)** | 2.765 | 5 | — |
+| **Final Consensus (Avg ε)** | 2.777 | 19 | — |
+
+#### 📊 Triple Heatmap Visualization
+
+The heatmaps show DBSCAN performance across the parameter space. Each cell represents a unique (ε, min_samples) combination, colored by the evaluation metric. Optimal combo positions are outlined:
+
+![Triple Heatmaps: Silhouette, Calinski-Harabasz, Davies-Bouldin](output/dbscan_tuning_triple_heatmaps_6_combos.png)
+
+**With Custom Combo (ε=2.58, M=10):**
+
+![Triple Heatmaps with Custom Combo](output/dbscan_tuning_triple_heatmaps.png)
+
+#### 📈 K-Distance Elbow Plot
+
+The k-distance graph shows the distance to the k-th nearest neighbor for each point. The "elbow" indicates a suitable ε value. Multiple ε thresholds from different optimization strategies are overlaid:
+
+![K-Distance Elbow Plot](output/dbscan_k_distance_elbow_plot_final.png)
+
+#### 🔍 PCA Scree Plot
+
+Shows cumulative explained variance across principal components. PCA-3, PCA-5, and PCA-10 are highlighted:
+
+| PC | Individual Variance | Cumulative Variance |
+| :--- | :--- | :--- |
+| 1 | 36.2% | 36.2% |
+| 2 | 19.2% | 55.4% |
+| 3 | 11.1% | 66.5% ⭐ |
+| 4 | 7.1% | 73.6% |
+| 5 | 6.6% | 80.2% ⭐ |
+| ... | ... | ... |
+| 10 | 1.9% | 96.2% ⭐ |
+
+![PCA Scree Plot](output/dbscan_pca_cumulative_explained_variance_scree_plot.png)
+
+#### 🎯 3D Cluster Visualization (8 Combinations)
+
+Each subplot shows the clustering result in 3D PCA space for different (ε, min_samples) combinations. Noise points are marked separately:
+
+| Combo | Clusters | Noise Points |
+| :--- | :--- | :--- |
+| Silhouette Max | 2 | 20 |
+| Calinski-Harabasz Max | 2 | 24 |
+| Davies-Bouldin Min | 3 | 162 |
+| Elbow (Sil M) | 1 | 9 |
+| Elbow (CH M) | 1 | 9 |
+| Elbow (DB M) | 1 | 17 |
+| Final Consensus (Avg ε) | 2 | 27 |
+| Custom Combo (ε=2.58, M=10) | 2 | 28 |
+
+![PCA 3D Cluster Visualization](output/dbscan_pca_3d_clusters_comparison_final.png)
+
+> **Key Insight:** Trade-off between number of clusters and noise points. Stricter parameters (lower ε, lower M) produce more clusters but more noise. Consensus approach balances both.
+
+---
+
 ## Dimensionality Reduction
 
-### 11. Principal Component Analysis (PCA)
+### 12. Principal Component Analysis (PCA)
 - **`PCA Wine.py`**
 
 **Explained Variance** <img src="output/pca_wine_variance.png" width="550"/>
@@ -237,3 +309,26 @@ The clustered heatmaps show the scaled customer features. Customers are reordere
 ### Requirements
 ```bash
 pip install pandas numpy scikit-learn matplotlib seaborn
+```
+
+---
+
+## Project Statistics
+
+| Category | Count | Algorithms |
+| :--- | :--- | :--- |
+| **Regression** | 3 | Linear, Polynomial, Multiple |
+| **Classification** | 5 | DT, RF, SVM, KNN, Logistic Reg |
+| **Clustering** | 3 | K-Means, Hierarchical, DBSCAN |
+| **Dimensionality Reduction** | 1 | PCA |
+| **Total Projects** | **12** | — |
+
+---
+
+## 📝 License
+This project is licensed under the MIT License — see the LICENSE file for details.
+
+---
+
+## 🤝 Contributing
+Contributions are welcome! Feel free to fork, improve, and submit pull requests.
