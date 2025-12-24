@@ -323,19 +323,19 @@ The maximum score for both metrics is 1.0, indicating perfect preservation of lo
 
 The 3D projection maintains almost perfect preservation of the original local neighborhood structure. The t-SNE plot (bottom right) clearly separates the three species compared to the raw feature combinations.
 
-!(output/tsne_iris_3d_comparison.png)
+![3D t-SNE Projection](output/tsne_iris_3d_comparison.png)
 
 ### 2D t-SNE Visualization
 
 The 2D projection is highly effective, showing excellent separation while retaining high scores for local structure.
 
-!(output/tsne_iris_2d_comparison.png)
+![2D t-SNE Projection](output/tsne_iris_2d_comparison.png)
 
 ### 1D t-SNE Visualization
 
 Reducing the data to a single dimension causes a slight loss in local fidelity (as shown by the lower scores), but the plot still effectively demonstrates the separation of *Setosa* from the other two species.
 
-!(output/tsne_iris_1d_comparison.png)
+![1D t-SNE Projection](output/tsne_iris_1d_comparison.png)
 
 ---
 
