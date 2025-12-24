@@ -303,6 +303,41 @@ Each subplot shows the clustering result in 3D PCA space for different (ε, min_
 > Excellent compression with minimal information loss
 
 ---
+## 13. t-SNE Analysis on Iris Dataset
+
+This section demonstrates the use of t-distributed Stochastic Neighbor Embedding (t-SNE) to visualize the 4-dimensional Iris dataset in 3D, 2D, and 1D space, along with quantitative measures of the local structure preservation.
+
+We use **Trustworthiness (T)** and **Continuity (C)** metrics (with $k=5$ nearest neighbors) to evaluate the quality of the dimensionality reduction.
+
+### Quality Metrics Summary
+
+The maximum score for both metrics is 1.0, indicating perfect preservation of local structure.
+
+| Embedding Dimension | Trustworthiness (T) | Continuity (C) |
+| :--- | :--- | :--- |
+| **3D t-SNE** | $0.9962$ | $0.9969$ |
+| **2D t-SNE** | $0.9881$ | $0.9893$ |
+| **1D t-SNE** | $0.9602$ | $0.9629$ |
+
+### 3D t-SNE Visualization
+
+The 3D projection maintains almost perfect preservation of the original local neighborhood structure. The t-SNE plot (bottom right) clearly separates the three species compared to the raw feature combinations.
+
+!(output/tsne_iris_3d_comparison.png)
+
+### 2D t-SNE Visualization
+
+The 2D projection is highly effective, showing excellent separation while retaining high scores for local structure.
+
+!(output/tsne_iris_2d_comparison.png)
+
+### 1D t-SNE Visualization
+
+Reducing the data to a single dimension causes a slight loss in local fidelity (as shown by the lower scores), but the plot still effectively demonstrates the separation of *Setosa* from the other two species.
+
+!(output/tsne_iris_1d_comparison.png)
+
+---
 
 ## Getting Started
 
@@ -320,8 +355,8 @@ pip install pandas numpy scikit-learn matplotlib seaborn
 | **Regression** | 3 | Linear, Polynomial, Multiple |
 | **Classification** | 5 | DT, RF, SVM, KNN, Logistic Reg |
 | **Clustering** | 3 | K-Means, Hierarchical, DBSCAN |
-| **Dimensionality Reduction** | 1 | PCA |
-| **Total Projects** | **12** | — |
+| **Dimensionality Reduction** | 2 | PCA, t-SNE |
+| **Total Projects** | **13** | — |
 
 ---
 
