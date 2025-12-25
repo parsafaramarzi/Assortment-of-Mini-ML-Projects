@@ -208,7 +208,6 @@ sns.stripplot(
     ax=ax_tsne_1d,
     legend=False
 )
-# Updated 1D plot title
 ax_tsne_1d.set_title(f'1D t-SNE Projection\nT: {trust_1d:.3f}, C: {cont_1d:.3f} (k={k})', fontsize=10)
 ax_tsne_1d.set_xlabel('t-SNE Component 1')
 ax_tsne_1d.set_ylabel('')
