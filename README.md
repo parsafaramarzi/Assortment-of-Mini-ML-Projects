@@ -46,8 +46,8 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ### 3. Multiple Linear Regression — *Concrete Compressive Strength*
 - **`MultipleLinearRegression Concrete Dataset.py`**
-  - **Dataset:** `concrete_data.csv`
-  - **Goal:** Predict **concrete compressive strength** from 8 material components.
+  - **Dataset:** `concrete_data.csv`
+  - **Goal:** Predict **concrete compressive strength** from 8 material components.
 
 <img src="output/concrete_corr_heatmap.png" width="600"/>
 <img src="output/concrete_feature_scatter.png" width="600"/>
@@ -303,7 +303,7 @@ Each subplot shows the clustering result in 3D PCA space for different (ε, min_
 > Excellent compression with minimal information loss
 
 ---
-## 13. t-SNE Analysis on Iris Dataset
+### 13. t-SNE Analysis on Iris Dataset
 
 This section demonstrates the use of t-distributed Stochastic Neighbor Embedding (t-SNE) to visualize the 4-dimensional Iris dataset in 3D, 2D, and 1D space, along with quantitative measures of the local structure preservation.
 
@@ -338,12 +338,47 @@ Reducing the data to a single dimension causes a slight loss in local fidelity (
 ![1D t-SNE Projection](output/tsne_iris_1d_comparison.png)
 
 ---
+### 14. UMAP Analysis on MNIST Digits
+- **`UMAP_MNIST.py`**
+
+This project uses **UMAP (Uniform Manifold Approximation and Projection)** to visualize the structure of the high-dimensional MNIST handwritten digits dataset. The goal is to reduce the data from 784 dimensions down to 2 dimensions for topological visualization.
+
+#### 🖼️ Output Visualizations
+
+**1. Original Input Grid (Sorted)**
+
+| Filename | Description |
+| :--- | :--- |
+| `UMAP_original_28x28_mnist_unique_sorted.png` | A grid showing one sample of each digit (0 through 9) in sorted order to confirm the input data. |
+
+<img src="output/UMAP_original_28x28_mnist_unique_sorted.png" width="500"/>
+
+**2. UMAP 2D Embedding Result**
+
+| Filename | Description |
+| :--- | :--- |
+| `UMAP_2d_visualization_mnist.png` | **Core Visualization:** A scatter plot of 1000 MNIST digits reduced to 2D. Points are colored by their true digit label, demonstrating UMAP's ability to create well-separated clusters for each digit class. |
+
+<img src="output/UMAP_2d_visualization_mnist.png"/>
+
+#### 📋 Technical Details
+
+| Detail | Value |
+| :--- | :--- |
+| **Dataset Used** | MNIST (1000 samples) |
+| **Original Dimension** | 784 features ($28 \times 28$ pixels) |
+| **UMAP Target Dimension** | 2 features (for visualization) |
+| **UMAP Hyperparameters** | `n_neighbors=15`, `min_dist=0.1`, `metric='euclidean'` |
+
+> **Key Insight:** UMAP successfully preserves the high-dimensional topological relationships, resulting in 10 distinct and tightly-grouped clusters in 2D space, corresponding perfectly to the 10 handwritten digits.
+
+---
 
 ## Getting Started
 
 ### Requirements
 ```bash
-pip install pandas numpy scikit-learn matplotlib seaborn
+pip install pandas numpy scikit-learn matplotlib seaborn umap-learn openml
 ```
 
 ---
