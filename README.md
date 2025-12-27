@@ -390,7 +390,7 @@ pip install pandas numpy scikit-learn matplotlib seaborn umap-learn openml
 | **Regression** | 3 | Linear, Polynomial, Multiple |
 | **Classification** | 5 | DT, RF, SVM, KNN, Logistic Reg |
 | **Clustering** | 3 | K-Means, Hierarchical, DBSCAN |
-| **Dimensionality Reduction** | 2 | PCA, t-SNE |
+| **Dimensionality Reduction** | 3 | PCA, t-SNE, UMAP |
 | **Total Projects** | **13** | — |
 
 ---
