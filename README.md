@@ -58,10 +58,57 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 > **improved R² from 62.8% → 76.3% (+13.5%)** and **reduced MSE from 96 → 61 (-36%)**.
 
 ---
+### 4. Ridge Regression (L2 Regularization) — *Concrete Compressive Strength*
+- **`Ridge_Regression_Concrete.py`**
+- **Dataset:** `concrete_data.csv`
+- **Goal:** Apply L2 regularization to handle multicollinearity and prevent overfitting.
+
+#### 📊 Model Performance Comparison
+This table compares the Ordinary Least Squares (OLS) model ($\alpha=0.0$), the optimized Ridge model ($\alpha=1.0$), and a highly penalized model ($\alpha=1000$). The best model is chosen based on the lowest Mean Squared Error (MSE).
+
+| Model Type / Alpha   |    MSE |    R² |
+|:---------------------|-------:|------:|
+| 0.0 (OLS)            |  95.97 | 0.628 |
+| 1.0 (Best Ridge)     |  95.97 | 0.628 |
+| 1000 (Max Penalty)   | 148.04 | 0.425 |
+
+#### 📈 Coefficient Shrinkage Analysis
+Ridge regression shrinks the magnitude of the coefficients towards zero as the regularization strength ($\alpha$) increases. Note how coefficients like `cement` and `blast_furnace_slag` are dramatically reduced in the Max Penalty model.
+
+| Feature            |   OLS ($\alpha=0.0$) |   Best Ridge ($\alpha=1.0$) |   Max Penalty ($\alpha=1000$) |
+|:-------------------|--------------:|---------------------:|-----------------------:|
+| Intercept          |       35.8579 |              35.8579 |                35.8579 |
+| cement             |       12.7884 |              12.5615 |                 3.3868 |
+| blast_furnace_slag |        9.4345 |               9.2151 |                 1.3524 |
+| fly_ash            |        5.2546 |               5.0605 |                -0.7015 |
+| water              |       -2.8826 |              -3.0296 |                -2.1586 |
+| superplasticizer   |        1.8521 |               1.8537 |                 2.2396 |
+| coarse_aggregate   |        1.4052 |               1.2535 |                -1.0108 |
+| fine_aggregate     |        1.9505 |               1.7549 |                -1.2425 |
+| age                |        7.0374 |               7.0185 |                 2.7131 |
+
+#### 🖼️ Visualizations
+
+**1D PCA Projection with Regression Lines**
+*Shows how the OLS and Ridge models fit the single most important principal component.*
+
+<img src="output/RidgeRegression_pca_1d_regression_comparison.png" width="600"/>
+
+**Performance vs. Alpha (Regularization Strength)**
+*Illustrates the trade-off between bias and variance, showing MSE and $R^2$ changes as $\alpha$ increases.*
+
+<img src="output/RidgeRegression_ridge_performance_vs_alpha.png" width="600"/>
+
+> **Key Findings:**
+> * **Best Performance:** The optimal Ridge model ($\alpha=1.0$) achieved a minimal MSE of $95.97$ and $R^2$ of $0.628$, marginally outperforming OLS.
+> * **Shrinkage Effect:** The coefficient for `cement` dropped from $12.79$ (OLS) to $3.39$ (Max Penalty), and `fly_ash` changed signs, demonstrating significant regularization.
+> * **Over-Regularization:** A high penalty ($\alpha=1000$) leads to severe underfitting, degrading performance with an MSE of $148.04$ and $R^2$ of $0.425$.
+
+---
 
 ## Classification Projects
 
-### 4. Decision Trees (DT)
+### 5. Decision Trees (DT)
 | Project | Goal |
 |--------|------|
 | `DT Drug200.py` | Classify drug type |
@@ -79,7 +126,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ---
 
-### 5. Random Forest (RF)
+### 6. Random Forest (RF)
 | Project | Goal |
 |--------|------|
 | `RF Drug200.py` | Ensemble drug classification |
@@ -93,7 +140,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ---
 
-### 6. Support Vector Machine (SVM)
+### 7. Support Vector Machine (SVM)
 - **`SVM BreastCancer.py`** – kernels `linear`, `poly`, `rbf`
 
 **Kernel Comparison**
@@ -113,7 +160,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ---
 
-### 7. K-Nearest Neighbors (KNN)
+### 8. K-Nearest Neighbors (KNN)
 - **`KNN Iris&Customer.py`**
 
 **Iris Classification**
@@ -129,7 +176,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ---
 
-### 8. Logistic Regression — *Bank Customer Churn*
+### 9. Logistic Regression — *Bank Customer Churn*
 - **`LogisticRegression Bank Customer Churn.py`**
 
 **Confusion Matrix**
@@ -152,7 +199,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ## Clustering Projects
 
-### 9. K-Means — *Mall Customer Segmentation*
+### 10. K-Means — *Mall Customer Segmentation*
 - **`Kmeans Mall Customers.py`**
 
 **Elbow Plot (k = 1–99)** <img src="output/kmeans_elbow.png" width="600"/>
@@ -165,7 +212,7 @@ Each project is **self-contained**, **beginner-friendly**, and ideal for **hands
 
 ---
 
-### 10. Hierarchical Clustering (HC) — *Mall Customer Segmentation*
+### 11. Hierarchical Clustering (HC) — *Mall Customer Segmentation*
 - **`HierarchicalClustering Mall Customers.py`**
 
 This project provides a comprehensive analysis of customer segmentation using **Hierarchical Clustering (HC)**. A rigorous hyperparameter search was performed, comparing 3 different distance metrics and 4 linkage methods to determine the optimal clustering configuration.
@@ -219,7 +266,7 @@ The clustered heatmaps show the scaled customer features. Customers are reordere
 
 ---
 
-### 11. DBSCAN — *Wine Clustering with Hyperparameter Tuning*
+### 12. DBSCAN — *Wine Clustering with Hyperparameter Tuning*
 - **`DBSCAN_WineData.py`**
 
 This project performs **comprehensive density-based clustering** on the Wine dataset using DBSCAN with exhaustive hyperparameter tuning across **three evaluation metrics**: Silhouette Score, Calinski-Harabasz Score, and Davies-Bouldin Score.
@@ -291,7 +338,7 @@ Each subplot shows the clustering result in 3D PCA space for different (ε, min_
 
 ## Dimensionality Reduction
 
-### 12. Principal Component Analysis (PCA)
+### 13. Principal Component Analysis (PCA)
 - **`PCA Wine.py`**
 
 **Explained Variance** <img src="output/pca_wine_variance.png" width="550"/>
@@ -303,7 +350,7 @@ Each subplot shows the clustering result in 3D PCA space for different (ε, min_
 > Excellent compression with minimal information loss
 
 ---
-### 13. t-SNE Analysis on Iris Dataset
+### 14. t-SNE Analysis on Iris Dataset
 
 This section demonstrates the use of t-distributed Stochastic Neighbor Embedding (t-SNE) to visualize the 4-dimensional Iris dataset in 3D, 2D, and 1D space, along with quantitative measures of the local structure preservation.
 
@@ -338,7 +385,7 @@ Reducing the data to a single dimension causes a slight loss in local fidelity (
 ![1D t-SNE Projection](output/tsne_iris_1d_comparison.png)
 
 ---
-### 14. UMAP Analysis on MNIST Digits
+### 15. UMAP Analysis on MNIST Digits
 - **`UMAP_MNIST.py`**
 
 This project uses **UMAP (Uniform Manifold Approximation and Projection)** to visualize the structure of the high-dimensional MNIST handwritten digits dataset. The goal is to reduce the data from 784 dimensions down to 2 dimensions for topological visualization.
@@ -374,24 +421,15 @@ This project uses **UMAP (Uniform Manifold Approximation and Projection)** to vi
 
 ---
 
-## Getting Started
-
-### Requirements
-```bash
-pip install pandas numpy scikit-learn matplotlib seaborn umap-learn openml
-```
-
----
-
 ## Project Statistics
 
 | Category | Count | Algorithms |
 | :--- | :--- | :--- |
-| **Regression** | 3 | Linear, Polynomial, Multiple |
+| **Regression** | 4 | Linear, Polynomial, Multiple, Ridge |
 | **Classification** | 5 | DT, RF, SVM, KNN, Logistic Reg |
 | **Clustering** | 3 | K-Means, Hierarchical, DBSCAN |
 | **Dimensionality Reduction** | 3 | PCA, t-SNE, UMAP |
-| **Total Projects** | **13** | — |
+| **Total Projects** | **15** | — |
 
 ---
 
