@@ -1,0 +1,10 @@
+Feature,OLS (Alpha=0.0),Best Ridge (Alpha=1.000),Max Penalty (Alpha=1000)
+Intercept,35.8579,35.8579,35.8579
+cement,12.7884,12.5615,3.3868
+blast_furnace_slag,9.4345,9.2151,1.3524
+fly_ash,5.2546,5.0605,-0.7015
+water,-2.8826,-3.0296,-2.1586
+superplasticizer,1.8521,1.8537,2.2396
+coarse_aggregate,1.4052,1.2535,-1.0108
+fine_aggregate ,1.9505,1.7549,-1.2425
+age,7.0374,7.0185,2.7131
