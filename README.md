@@ -480,9 +480,4 @@ This project uses **UMAP (Uniform Manifold Approximation and Projection)** to vi
 ---
 
 ## 📝 License
-This project is licensed under the MIT License — see the LICENSE file for details.
-
----
-
-## 🤝 Contributing
-Contributions are welcome! Feel free to fork, improve, and submit pull requests.
+This project is licensed under the MIT License.
