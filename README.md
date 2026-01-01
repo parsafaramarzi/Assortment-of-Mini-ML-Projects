@@ -105,10 +105,56 @@ Ridge regression shrinks the magnitude of the coefficients towards zero as the r
 > * **Over-Regularization:** A high penalty ($\alpha=1000$) leads to severe underfitting, degrading performance with an MSE of $148.04$ and $R^2$ of $0.425$.
 
 ---
+## 5. Lasso Regression Project: Diamond Price Prediction
+
+This project implements and analyzes **Lasso Regression (L1 Regularization)** to predict the price of diamonds using the renowned **Diamonds Dataset** from the `seaborn` library. The central objective is to leverage Lasso's inherent capability for **automatic feature selection**, demonstrating how it effectively shrinks the coefficients of irrelevant or redundant predictors to exactly zero, thereby creating a sparser, more interpretable model.
+
+### Key Methodologies
+
+* **Data Preparation Pipeline:**
+    * **Categorical Encoding:** Correct conversion of non-numerical features (`cut`, `color`, `clarity`) using One-Hot Encoding (`pd.get_dummies`).
+    * **Feature Scaling:** Application of `StandardScaler` to the feature set. This step is **critical** for all regularization techniques (Lasso and Ridge) to ensure fair penalization of coefficients regardless of the feature's original scale.
+* **Hyperparameter Optimization:** The model is rigorously tuned by iterating through a broad, logarithmically spaced range of alpha ($\alpha$) values. The optimal $\alpha$ is selected based on the lowest Root Mean Squared Error (RMSE) on the test set.
+* **Feature Selection Analysis:** The project focuses on visualizing and reporting the final coefficients, highlighting which features were retained and which were eliminated (set to $\beta=0$).
+
+### Prerequisites
+
+* Python 3.x
+* Required Libraries: `pandas`, `numpy`, `scikit-learn`, `seaborn`, and `matplotlib`.
+
+### Project Structure
+
+| File/Folder | Description |
+| :--- | :--- |
+| `your_script_name.py` | The fully modularized main script containing all functions for data handling, tuning, analysis, and visualization. |
+| `output/` | Dedicated directory created by the script for saving all project figures. |
+| `output/LassoReg_*.png` | Saved diagnostic and performance plots.
+
+### Results and Diagnostic Analysis
+
+#### Model Performance and Sparsity
+
+The analysis pinpoints the optimal alpha that balances prediction accuracy with model complexity.
+
+* **Performance vs. Alpha Plot:** This plot shows the typical U-shaped curve used to locate the optimal $\alpha$ that minimizes RMSE.
+    ![Performance vs. Alpha Plot](output/LassoReg_Performance_vs_Alpha.png)
+* **Coefficient Path Plot:** This key plot demonstrates the core mechanism of Lasso, showing how feature coefficients shrink towards and eventually hit zero as $\alpha$ increases (sparsity).
+    ![Lasso Coefficient Path Plot](output/LassoReg_Coefficient_Path.png)
+* **Feature Importance:** Analysis of the final model's coefficients confirms domain knowledge. The **`carat`** feature maintains a massive positive coefficient, indicating it is overwhelmingly the most significant predictor of diamond price.
+
+#### Diagnostic Assessment
+
+The project generates a residual plot to diagnose model assumptions:
+
+* **Residual Plot:** This diagnostic plot reveals a non-random pattern, specifically the **"fanning out"** of residuals as predicted price increases. This is visual evidence of **Heteroscedasticity** (non-constant variance).
+    ![Residual Plot](output/LassoReg_Residual_Plot.png)
+* **Recommendation:** To improve the model's reliability and correct for the systematic bias observed, future work should consider applying a **logarithmic transformation to the target variable (`price`)** or employing non-linear regression techniques.
+
+---
 
 ## Classification Projects
 
-### 5. Decision Trees (DT)
+### 6. Decision Trees (DT)
 | Project | Goal |
 |--------|------|
 | `DT Drug200.py` | Classify drug type |
@@ -126,7 +172,7 @@ Ridge regression shrinks the magnitude of the coefficients towards zero as the r
 
 ---
 
-### 6. Random Forest (RF)
+### 7. Random Forest (RF)
 | Project | Goal |
 |--------|------|
 | `RF Drug200.py` | Ensemble drug classification |
@@ -140,7 +186,7 @@ Ridge regression shrinks the magnitude of the coefficients towards zero as the r
 
 ---
 
-### 7. Support Vector Machine (SVM)
+### 8. Support Vector Machine (SVM)
 - **`SVM BreastCancer.py`** – kernels `linear`, `poly`, `rbf`
 
 **Kernel Comparison**
@@ -160,7 +206,7 @@ Ridge regression shrinks the magnitude of the coefficients towards zero as the r
 
 ---
 
-### 8. K-Nearest Neighbors (KNN)
+### 9. K-Nearest Neighbors (KNN)
 - **`KNN Iris&Customer.py`**
 
 **Iris Classification**
@@ -176,7 +222,7 @@ Ridge regression shrinks the magnitude of the coefficients towards zero as the r
 
 ---
 
-### 9. Logistic Regression — *Bank Customer Churn*
+### 10. Logistic Regression — *Bank Customer Churn*
 - **`LogisticRegression Bank Customer Churn.py`**
 
 **Confusion Matrix**
@@ -199,7 +245,7 @@ Ridge regression shrinks the magnitude of the coefficients towards zero as the r
 
 ## Clustering Projects
 
-### 10. K-Means — *Mall Customer Segmentation*
+### 11. K-Means — *Mall Customer Segmentation*
 - **`Kmeans Mall Customers.py`**
 
 **Elbow Plot (k = 1–99)** <img src="output/kmeans_elbow.png" width="600"/>
@@ -212,7 +258,7 @@ Ridge regression shrinks the magnitude of the coefficients towards zero as the r
 
 ---
 
-### 11. Hierarchical Clustering (HC) — *Mall Customer Segmentation*
+### 12. Hierarchical Clustering (HC) — *Mall Customer Segmentation*
 - **`HierarchicalClustering Mall Customers.py`**
 
 This project provides a comprehensive analysis of customer segmentation using **Hierarchical Clustering (HC)**. A rigorous hyperparameter search was performed, comparing 3 different distance metrics and 4 linkage methods to determine the optimal clustering configuration.
@@ -266,7 +312,7 @@ The clustered heatmaps show the scaled customer features. Customers are reordere
 
 ---
 
-### 12. DBSCAN — *Wine Clustering with Hyperparameter Tuning*
+### 13. DBSCAN — *Wine Clustering with Hyperparameter Tuning*
 - **`DBSCAN_WineData.py`**
 
 This project performs **comprehensive density-based clustering** on the Wine dataset using DBSCAN with exhaustive hyperparameter tuning across **three evaluation metrics**: Silhouette Score, Calinski-Harabasz Score, and Davies-Bouldin Score.
@@ -338,7 +384,7 @@ Each subplot shows the clustering result in 3D PCA space for different (ε, min_
 
 ## Dimensionality Reduction
 
-### 13. Principal Component Analysis (PCA)
+### 14. Principal Component Analysis (PCA)
 - **`PCA Wine.py`**
 
 **Explained Variance** <img src="output/pca_wine_variance.png" width="550"/>
@@ -350,7 +396,7 @@ Each subplot shows the clustering result in 3D PCA space for different (ε, min_
 > Excellent compression with minimal information loss
 
 ---
-### 14. t-SNE Analysis on Iris Dataset
+### 15. t-SNE Analysis on Iris Dataset
 
 This section demonstrates the use of t-distributed Stochastic Neighbor Embedding (t-SNE) to visualize the 4-dimensional Iris dataset in 3D, 2D, and 1D space, along with quantitative measures of the local structure preservation.
 
@@ -385,7 +431,7 @@ Reducing the data to a single dimension causes a slight loss in local fidelity (
 ![1D t-SNE Projection](output/tsne_iris_1d_comparison.png)
 
 ---
-### 15. UMAP Analysis on MNIST Digits
+### 16. UMAP Analysis on MNIST Digits
 - **`UMAP_MNIST.py`**
 
 This project uses **UMAP (Uniform Manifold Approximation and Projection)** to visualize the structure of the high-dimensional MNIST handwritten digits dataset. The goal is to reduce the data from 784 dimensions down to 2 dimensions for topological visualization.
@@ -425,11 +471,11 @@ This project uses **UMAP (Uniform Manifold Approximation and Projection)** to vi
 
 | Category | Count | Algorithms |
 | :--- | :--- | :--- |
-| **Regression** | 4 | Linear, Polynomial, Multiple, Ridge |
+| **Regression** | 5 | Linear, Polynomial, Multiple, Ridge, Lasso |
 | **Classification** | 5 | DT, RF, SVM, KNN, Logistic Reg |
 | **Clustering** | 3 | K-Means, Hierarchical, DBSCAN |
 | **Dimensionality Reduction** | 3 | PCA, t-SNE, UMAP |
-| **Total Projects** | **15** | — |
+| **Total Projects** | **16** | — |
 
 ---
 
