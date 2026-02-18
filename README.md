@@ -248,9 +248,11 @@ The project generates a residual plot to diagnose model assumptions:
 ### 11. K-Means — *Mall Customer Segmentation*
 - **`Kmeans Mall Customers.py`**
 
-**Elbow Plot (k = 1–99)** <img src="output/kmeans_elbow.png" width="600"/>
+**Elbow Plot (k = 1–99)**
+<img src="output/kmeans_elbow.png" width="600"/>
 
-**Customer Clusters (k = 8)** <img src="output/kmeans_clusters.png" width="650"/>
+**Customer Clusters (k = 8)**
+<img src="output/kmeans_clusters.png" width="650"/>
 
 > **Detected optimal k = 8** via automated elbow method 
 > 8 distinct customer groups identified 
